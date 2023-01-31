@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class Menu {
-	private Spring FOODNUM;
+	private Spring foodnum;
 	private Spring FOODNAME;
 	private Spring FOODTYPE;
 	private int FOODPRICE;
@@ -15,7 +15,7 @@ public class Menu {
 	
 	public Menu(Spring fOODNUM, Spring fOODNAME, Spring fOODTYPE, int fOODPRICE, Spring foodSOLDOUT, int fOODLEV) {
 		super();
-		FOODNUM = fOODNUM;
+		foodnum = fOODNUM;
 		FOODNAME = fOODNAME;
 		FOODTYPE = fOODTYPE;
 		FOODPRICE = fOODPRICE;
@@ -25,7 +25,7 @@ public class Menu {
 
 	@Override
 	public String toString() {
-		return "Menu [FOODNUM=" + FOODNUM + ", FOODNAME=" + FOODNAME + ", FOODTYPE=" + FOODTYPE + ", FOODPRICE="
+		return "Menu [FOODNUM=" + foodnum + ", FOODNAME=" + FOODNAME + ", FOODTYPE=" + FOODTYPE + ", FOODPRICE="
 				+ FOODPRICE + ", FoodSOLDOUT=" + FoodSOLDOUT + ", FOODLEV=" + FOODLEV + "]";
 	}
 	
