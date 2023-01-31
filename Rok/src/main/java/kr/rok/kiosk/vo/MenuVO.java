@@ -5,7 +5,7 @@ import javax.swing.Spring;
 import lombok.Data;
 
 @Data
-public class Menu {
+public class MenuVO {
 	private Spring foodnum;
 	private Spring FOODNAME;
 	private Spring FOODTYPE;
@@ -13,7 +13,7 @@ public class Menu {
 	private Spring FoodSOLDOUT;
 	private int FOODLEV;
 	
-	public Menu(Spring fOODNUM, Spring fOODNAME, Spring fOODTYPE, int fOODPRICE, Spring foodSOLDOUT, int fOODLEV) {
+	public MenuVO(Spring fOODNUM, Spring fOODNAME, Spring fOODTYPE, int fOODPRICE, Spring foodSOLDOUT, int fOODLEV) {
 		super();
 		foodnum = fOODNUM;
 		FOODNAME = fOODNAME;
