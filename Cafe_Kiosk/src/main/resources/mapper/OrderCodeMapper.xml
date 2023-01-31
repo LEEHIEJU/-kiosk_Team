@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.human.cafekiosk.dao.OrdercodeDAO">
+	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
+	<select id="DATE" resultType="string">
+		select sysdate from dual
+	</select>
+	
+	<select id="ordrcode" parameterType="OrdercodeVO" resultType="kr.hizju.cafekiosk.vo.OrdercodeVO">
+		select 
+		ORDERNUM AS ordernum,
+		ORDERWHERE AS orderwhere,
+		ORDERIN AS orderin,
+		sysdate AS ORDERDATE,
+		COUPON AS coupon
+		from ORDERCODE
+	</select>
+	
+</mapper>

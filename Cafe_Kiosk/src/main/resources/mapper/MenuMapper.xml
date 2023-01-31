@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.human.cafekiosk.dao.MenuDAO">
+	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
+	
+	<select id="menu" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+		select 
+		FOODNUM AS foodnum,
+		FOODNAME AS foodname,
+		FOODTYPE AS foodtype,
+		FOODPRICE AS foodprice,
+		FOODSOLDOUT AS foodsoldout,
+		FOODLEV AS foodlev
+		from MENU
+		
+	</select>
+	
+	<select id="size" parameterType="DrinkSizeVO" resultType="kr.hizju.cafekiosk.vo.DrinkSizeVO">
+		select 
+		DRINKSIZEID AS drinksizeid,
+		HOTSMALL AS hotsmall,
+		ROUND(ICESMALL + 500) AS icesmall,
+		ROUND(HOTLARGE + 1000) AS hotlarge,
+		ROUND(ICELARGE + 1500) AS icelarge
+		from DRINKSIZE, MENU
+	</select>
+	
+</mapper>
