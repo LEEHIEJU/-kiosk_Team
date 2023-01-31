@@ -1,30 +1,30 @@
 package kr.hizju.cafekiosk.vo;
 
-import javax.swing.Spring;
 
 import lombok.Data;
 
 @Data
 public class OrderNumVO {
-	private int IDX;
-	private int FOODSTOCK;
-	private int ORDERCOUNT;
-	private int ORDERNUM;
-	private int FOODNUM;
+	private int idx;
+	private int foodstock;
+	private int ordercount;
+	private int ordernum;
+	private int foodnum;
 	
-	public OrderNumVO(int iDX, int fOODSTOCK, int oRDERCOUNT, int oRDERNUM, int fOODNUM) {
+	public OrderNumVO(int idx, int foodstock, int ordercount, int ordernum, int foodnum) {
 		super();
-		IDX = iDX;
-		FOODSTOCK = fOODSTOCK;
-		ORDERCOUNT = oRDERCOUNT;
-		ORDERNUM = oRDERNUM;
-		FOODNUM = fOODNUM;
+		this.idx = idx;
+		this.foodstock = foodstock;
+		this.ordercount = ordercount;
+		this.ordernum = ordernum;
+		this.foodnum = foodnum;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderNum [IDX=" + IDX + ", FOODSTOCK=" + FOODSTOCK + ", ORDERCOUNT=" + ORDERCOUNT + ", ORDERNUM="
-				+ ORDERNUM + ", FOODNUM=" + FOODNUM + "]";
+		return "OrderNumVO [idx=" + idx + ", foodstock=" + foodstock + ", ordercount=" + ordercount + ", ordernum="
+				+ ordernum + ", foodnum=" + foodnum + "]";
 	}
+	
 	
 }

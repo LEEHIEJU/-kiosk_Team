@@ -8,25 +8,29 @@ import lombok.Data;
 
 @Data
 public class OrderCodeVO {
-	private int ORDERNUM;
-	private Spring ORDERWHERE;
-	private Spring ORDERIN;
-	private Date ORDERDATE;
-	private Spring COUPON;
+	private int ordernum;
+	private Spring orderwhere;
+	private Spring orderin;
+	private Date orderdate;
+	private Spring coupon;
 	
-	public OrderCodeVO(int oRDERNUM, Spring oRDERWHERE, Spring oRDERIN, Date oRDERDATE, Spring cOUPON) {
+	
+	public OrderCodeVO(int ordernum, Spring orderwhere, Spring orderin, Date orderdate, Spring coupon) {
 		super();
-		ORDERNUM = oRDERNUM;
-		ORDERWHERE = oRDERWHERE;
-		ORDERIN = oRDERIN;
-		ORDERDATE = oRDERDATE;
-		COUPON = cOUPON;
+		this.ordernum = ordernum;
+		this.orderwhere = orderwhere;
+		this.orderin = orderin;
+		this.orderdate = orderdate;
+		this.coupon = coupon;
 	}
 
 	@Override
 	public String toString() {
-		return "OrderCode [ORDERNUM=" + ORDERNUM + ", ORDERWHERE=" + ORDERWHERE + ", ORDERIN=" + ORDERIN
-				+ ", ORDERDATE=" + ORDERDATE + ", COUPON=" + COUPON + "]";
+		return "OrderCodeVO [ordernum=" + ordernum + ", orderwhere=" + orderwhere + ", orderin=" + orderin
+				+ ", orderdate=" + orderdate + ", coupon=" + coupon + "]";
 	}
+	
+	
+	
 	
 }

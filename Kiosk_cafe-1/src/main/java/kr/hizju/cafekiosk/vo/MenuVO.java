@@ -6,28 +6,29 @@ import lombok.Data;
 
 @Data
 public class MenuVO {
-	private Spring FOODNUM;
-	private Spring FOODNAME;
-	private Spring FOODTYPE;
-	private int FOODPRICE;
-	private Spring FoodSOLDOUT;
-	private int FOODLEV;
+	private Spring foddnum;
+	private Spring foodname;
+	private Spring foodtype;
+	private int foddprice;
+	private Spring foodsoldout;
+	private int foodlev;
 	
-	public MenuVO(Spring fOODNUM, Spring fOODNAME, Spring fOODTYPE, int fOODPRICE, Spring foodSOLDOUT, int fOODLEV) {
+	public MenuVO(Spring foddnum, Spring foodname, Spring foodtype, int foddprice, Spring foodsoldout, int foodlev) {
 		super();
-		FOODNUM = fOODNUM;
-		FOODNAME = fOODNAME;
-		FOODTYPE = fOODTYPE;
-		FOODPRICE = fOODPRICE;
-		FoodSOLDOUT = foodSOLDOUT;
-		FOODLEV = fOODLEV;
+		this.foddnum = foddnum;
+		this.foodname = foodname;
+		this.foodtype = foodtype;
+		this.foddprice = foddprice;
+		this.foodsoldout = foodsoldout;
+		this.foodlev = foodlev;
 	}
 
 	@Override
 	public String toString() {
-		return "Menu [FOODNUM=" + FOODNUM + ", FOODNAME=" + FOODNAME + ", FOODTYPE=" + FOODTYPE + ", FOODPRICE="
-				+ FOODPRICE + ", FoodSOLDOUT=" + FoodSOLDOUT + ", FOODLEV=" + FOODLEV + "]";
+		return "MenuVO [foddnum=" + foddnum + ", foodname=" + foodname + ", foodtype=" + foodtype + ", foddprice="
+				+ foddprice + ", foodsoldout=" + foodsoldout + ", foodlev=" + foodlev + "]";
 	}
+	
 	
 
 }
