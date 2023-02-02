@@ -8,14 +8,14 @@
 		select sysdate from dual
 	</select>
 	
-	<select id="admin" parameterType="Admin" resultType="kr.hizju.cafekiosk.vo.AdminVO">
+	<select id="admin" parameterType="Admin" resultType="kr.rok.kiosk.vo.AdminVO">
 		select 
 		#{ADMINPW } as adminpw
 		from ADMIN
 		where adminpw = #{param1}
 	</select>
 	
-	<select id="menu" parameterType="Menu" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	<select id="menu" parameterType="Menu" resultType="kr.rok.kiosk.vo.MenuVO">
 		select 
 		FOODNUM AS foodnum,
 		FOODNAME AS foodname,
@@ -27,7 +27,7 @@
 		
 	</select>
 	
-	<select id="size" parameterType="DrinkSize" resultType="kr.hizju.cafekiosk.vo.DrinkSizeVO">
+	<select id="size" parameterType="DrinkSize" resultType="kr.rok.kiosk.vo.DrinkSizeVO">
 		select 
 		DRINKSIZEID AS drinksizeid,
 		HOTSMALL AS hotsmall,
@@ -37,7 +37,7 @@
 		from DRINKSIZE
 	</select>
 	
-	<select id="ordrcode" parameterType="Ordercode" resultType="kr.hizju.cafekiosk.vo.OrdercodeVO">
+	<select id="ordrcode" parameterType="Ordercode" resultType="kr.rok.kiosk.vo.OrdercodeVO">
 		select 
 		ORDERNUM AS ordernum,
 		ORDERWHERE AS orderwhere,
@@ -47,7 +47,7 @@
 		from ORDERCODE
 	</select>
 	
-	<select id="ordernum" parameterType="Ordernum" resultType="kr.hizju.cafekiosk.vo.OrdernumVO">
+	<select id="ordernum" parameterType="Ordernum" resultType="kr.rok.kiosk.vo.OrdernumVO">
 		select 
 		IDX AS idx,
 		FOODSTOCK AS foodstock,
