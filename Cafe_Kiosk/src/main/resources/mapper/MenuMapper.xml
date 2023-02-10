@@ -14,7 +14,7 @@
 		FOODPRICE AS foodprice,
 		FOODSOLDOUT AS foodsoldout,
 		FOODLEV AS foodlev
-		from MENU
+		from MENUW
 		
 	</select>
 	

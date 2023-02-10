@@ -1,6 +1,6 @@
 package kr.hizju.cafekiosk.service;
 
-import java.util.List;
+import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,12 @@ public class AdminServiceImpl implements AdminService{
 	private AdminDAO adminDAO;
 
 	@Override
-	public List<AdminVO> admin() {
+	public AdminVO pw(String adminpw) {
+		try {
+			return adminDAO.pw(adminpw);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
