@@ -4,24 +4,24 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
-import kr.hizju.cafekiosk.vo.DrinkSizeVO;
 import kr.hizju.cafekiosk.vo.MenuVO;
 
 @Mapper
-@Repository("menuDAO")
 public interface MenuDAO {
 
-	List<MenuVO> selectList() throws SQLException;
+	List<MenuVO> menulist() throws SQLException;
+	
+	// 검색하기
+	void menusearch(MenuVO menuVO) throws SQLException;
 
-	// 2. 저장하기
-	void insert(DrinkSizeVO drinkSizeVO) throws SQLException;
+	// 저장하기
+	void insert(MenuVO menuVO) throws SQLException;
 
-	// <!-- 3. 수정하기 -->
-	void update(DrinkSizeVO drinkSizeVO) throws SQLException;
+	// 수정하기
+	void update(MenuVO menuVO) throws SQLException;
 
-	// <!-- 4. 삭제하기 -->
+	// 삭제하기
 	void delete(int idx) throws SQLException;
 
 }

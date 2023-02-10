@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.human.cafekiosk.dao.DrinkSizeDAO">
+	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
+	
+	<!-- 음료사이즈 -->
+	<select id="drinksizelist" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+		select 
+		DRINKSIZEID AS foodnum,
+		HOTSMALL AS hotsmall,
+		ICESMALL AS icesmall,
+		HOTLARGE AS hotlarge,
+		ICELARGE AS icelarge
+		from DRINKSIZE
+		
+	</select>
+	
+	<!-- 사이즈 업 -->
+	<select id="sizeup" parameterType="DrinkSizeVO" resultType="kr.hizju.cafekiosk.vo.DrinkSizeVO">
+		select 
+		#{HOTLARGE } as hotlarge + 1000
+		#{ICELARGE } as icelarge + 1500
+		from DRINKSIZE
+	</select>
+	
+	<!-- 아이스 업 -->
+	<select id="iceup" parameterType="DrinkSizeVO" resultType="kr.hizju.cafekiosk.vo.DrinkSizeVO">
+		select 
+		#{ICESMALL} as icesmall + 500
+		from DRINKSIZE	
+	</select>
+	
+</mapper>

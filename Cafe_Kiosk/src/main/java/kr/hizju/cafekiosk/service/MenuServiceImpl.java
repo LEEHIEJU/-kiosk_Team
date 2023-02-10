@@ -16,31 +16,28 @@ public class MenuServiceImpl implements MenuService {
 	private MenuDAO menuDAO;
 
 	@Override
-	public List<MenuVO> selectList() {
-		List<MenuVO> list = null;
-		try {
-			list = menuDAO.selectList();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return list;
-	}
-
-	@Override
-	public void insert(DrinkSizeVO drinkSizeVO) {
-		
-		
-	}
-
-	@Override
-	public void update(DrinkSizeVO drinkSizeVO) {
+	public List<MenuVO> menulist() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void menusearch(MenuVO menuVO) {
+		
+	}
+
+	@Override
+	public void insert(MenuVO menuVO) {
+
+	}
+
+	@Override
+	public void update(MenuVO menuVO) {
 		
 	}
 
 	@Override
 	public void delete(int idx) {
-		// TODO Auto-generated method stub
 		
 	}
 

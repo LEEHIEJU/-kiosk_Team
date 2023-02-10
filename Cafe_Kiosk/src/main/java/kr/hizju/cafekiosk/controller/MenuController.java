@@ -13,9 +13,33 @@ public class MenuController {
 	private MenuService menuService;
 
 	@GetMapping("/menu")
-	public String selectList() {
+	public String menulist() {
 
 		return "menu";
+	}
+	
+	@GetMapping("/search")
+	public String menusearch() {
+
+		return "search";
+	}
+	
+	@GetMapping("/insert")
+	public String insert() {
+
+		return "insert";
+	}
+	
+	@GetMapping("/update")
+	public String update() {
+
+		return "update";
+	}
+	
+	@GetMapping("/delete")
+	public String delete() {
+
+		return "delete";
 	}
 
 }
