@@ -5,6 +5,7 @@
 <mapper namespace="kr.human.cafekiosk.dao.OrdernumDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 
+    <!-- 영수증 -->
 	<select id="ordernum" parameterType="Ordernum" resultType="kr.hizju.cafekiosk.vo.OrdernumVO">
 		select 
 		IDX AS idx,

@@ -5,11 +5,12 @@
 <mapper namespace="kr.human.cafekiosk.dao.AdminDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
+	<!-- 관리자 설정 -->
 	<select id="admin" parameterType="AdminVO" resultType="kr.hizju.cafekiosk.vo.AdminVO">
 		select 
 		#{ADMINPW } as adminpw
 		from ADMIN
-		where adminpw = #{param1}
+		where adminpw = #{adminpw}
 	</select>
 	
 </mapper>

@@ -5,7 +5,8 @@
 <mapper namespace="kr.human.cafekiosk.dao.MenuDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
-	<select id="menu" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	<!-- 메뉴 -->
+	<select id="menulist" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
 		select 
 		FOODNUM AS foodnum,
 		FOODNAME AS foodname,
@@ -17,14 +18,26 @@
 		
 	</select>
 	
-	<select id="size" parameterType="DrinkSizeVO" resultType="kr.hizju.cafekiosk.vo.DrinkSizeVO">
-		select 
-		DRINKSIZEID AS drinksizeid,
-		HOTSMALL AS hotsmall,
-		ROUND(ICESMALL + 500) AS icesmall,
-		ROUND(HOTLARGE + 1000) AS hotlarge,
-		ROUND(ICELARGE + 1500) AS icelarge
-		from DRINKSIZE, MENU
+	<!-- 메뉴 검색 -->
+	<select id="searchmenu" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	select * from MENU where foodname = #{foodname}
 	</select>
 	
-</mapper>
+	<!-- 메뉴 저장 -->
+	<select id="insert" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	insert into MENU foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
+	where foodnum=#{foodnum}
+	</select>
+	
+	<!-- 메뉴 수정 -->
+	<select id="update" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
+	where foodnum=#{foodnum}
+	</select>
+	
+	<!-- 메뉴 삭제 -->
+	<select id="delete" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	delete from MENU where foodnum= #{foodnum}
+	</select>
+	
+	</mapper>

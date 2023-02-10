@@ -8,6 +8,7 @@
 		select sysdate from dual
 	</select>
 	
+	<!-- 주문화면 -->
 	<select id="ordrcode" parameterType="OrdercodeVO" resultType="kr.hizju.cafekiosk.vo.OrdercodeVO">
 		select 
 		ORDERNUM AS ordernum,
