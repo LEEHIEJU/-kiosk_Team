@@ -28,7 +28,7 @@ public class MenuServiceImpl implements MenuService {
 
 	@Override
 	public void insert(DrinkSizeVO drinkSizeVO) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
