@@ -2,42 +2,38 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.human.cafekiosk.dao.MenuDAO">
+<mapper namespace="kr.hizju.cafekiosk.dao.MenuDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
 	<!-- 메뉴 -->
-	<select id="menulist" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
-		select 
-		FOODNUM AS foodnum,
-		FOODNAME AS foodname,
-		FOODTYPE AS foodtype,
-		FOODPRICE AS foodprice,
-		FOODSOLDOUT AS foodsoldout,
-		FOODLEV AS foodlev
-		from MENUW
-		
+	<select id="menulist" resultType="MenuVO">
+		select
+			*
+		from 
+			MENU
 	</select>
 	
-	<!-- 메뉴 검색 -->
-	<select id="searchmenu" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+		<!-- 메뉴 검색 -->
+	<select id="searchmenu" parameterType="string" resultType="MenuVO">
 	select * from MENU where foodname = #{foodname}
 	</select>
 	
 	<!-- 메뉴 저장 -->
-	<select id="insert" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	<select id="insert" parameterType="map" resultType="MenuVO">
 	insert into MENU foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
 	where foodnum=#{foodnum}
 	</select>
 	
 	<!-- 메뉴 수정 -->
-	<select id="update" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	<select id="update" parameterType="map" resultType="MenuVO">
 	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
 	where foodnum=#{foodnum}
 	</select>
 	
 	<!-- 메뉴 삭제 -->
-	<select id="delete" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
+	<select id="delete" parameterType="map" resultType="MenuVO">
 	delete from MENU where foodnum= #{foodnum}
 	</select>
+	
 	
 	</mapper>

@@ -1,7 +1,8 @@
 package kr.hizju.cafekiosk.service;
 
-
 import java.util.List;
+
+import org.springframework.ui.Model;
 
 import kr.hizju.cafekiosk.vo.MenuVO;
 

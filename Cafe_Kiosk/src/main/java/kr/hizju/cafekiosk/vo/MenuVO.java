@@ -1,16 +1,18 @@
 package kr.hizju.cafekiosk.vo;
 
-import javax.swing.Spring;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MenuVO {
-	private Spring foddnum;
-	private Spring foodname;
-	private Spring foodtype;
-	private int foddprice;
-	private Spring foodsoldout;
+	private String foodnum;
+	private String foodname;
+	private String foodtype;
+	private int foodprice;
+	private String foodsoldout;
 	private int foodlev;
 
 }
