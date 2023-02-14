@@ -16,6 +16,4 @@ public class OrderCodeVO {
 	private Date orderdate;
 	private String coupon;
 	
-	
-	
 }
