@@ -13,18 +13,6 @@
 			MENU
 	</select>
 	
-	<!-- 메뉴 유무(존재파악) -->
-	<select id="menusearch1" parameterType="MenuVO" resultType="kr.hizju.cafekiosk.vo.MenuVO">
-	select foodnum 
-	from MENU 
-	where foodname = #{foodname}
-	</select>	
-	
-	<!-- 메뉴 검색 -->
-	<select id="searchmenu" parameterType="string" resultType="MenuVO">
-	select * from MENU where foodname = #{foodname}
-	</select>
-	
 	<!-- 메뉴 저장 -->
 	<insert id="insert" parameterType="hashmap">
 	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout)
