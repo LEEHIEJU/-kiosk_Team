@@ -14,20 +14,28 @@
 	</select>
 	
 	<!-- 메뉴 저장 -->
-	<insert id="insert" parameterType="map">
-	insert into MENU foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
-	where foodnum=#{foodnum}
+	<insert id="insert" parameterType="hashmap">
+	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout)
+		values (#{foodnum, jdbcType=VARCHAR},
+		 		#{foodname, jdbcType=VARCHAR}, 
+                #{foodtype, jdbcType=VARCHAR},
+                #{foodprice, jdbcType=VARCHAR}, 
+                #{foodsoldout, jdbcType=VARCHAR})
 	</insert>
 	
 	<!-- 메뉴 수정 -->
-	<update id="update" parameterType="map">
-	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
-	where foodnum=#{foodnum}
+	<update id="update" parameterType="hashmap">
+	update MENU set foodname, foodtype, foodprice, foodsoldout
+		values(#{foodname, jdbcType=VARCHAR}, 
+               #{foodtype, jdbcType=VARCHAR},
+               #{foodprice, jdbcType=VARCHAR}, 
+               #{foodsoldout, jdbcType=VARCHAR})
+			where foodnum=#{foodnum, jdbcType=VARCHAR}
 	</update>
 	
 	<!-- 메뉴 삭제 -->
-	<delete id="delete" parameterType="map">
-	delete from MENU where foodnum= #{foodnum}
+	<delete id="delete" parameterType="hashmap">
+	delete from MENU where foodnum= #{foodnum, jdbcType=VARCHAR}
 	</delete>
 	
 	

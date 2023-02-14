@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.hizju.cafekiosk.service.MenuService;
@@ -28,25 +29,25 @@ public class MenuController {
 	}
 	
 	@GetMapping("/insertmenu")
-	public boolean insert(Map<String, Object> menuMap) {
+	public boolean insert(@RequestParam Map<String, Object> menuMap) {
 		menuService.insert(menuMap);
-		log.info("저장값 : {}", menuService.menulist());
+		log.info("저장값 : {}", menuService.insert(menuMap));
 
 		return true;
 	}
 
 	@GetMapping("/updatemenu")
-	public boolean update(Map<String, Object> menuMap) {
+	public boolean update(@RequestParam Map<String, Object> menuMap) {
 		menuService.update(menuMap);
-		log.info("수정값 : {}", menuService.menulist());
+		log.info("수정값 : {}", menuService.update(menuMap));
 		
 		return true;
 	}
 
 	@GetMapping("/deletemenu")
-	public boolean delete(Map<String, Object> menuMap) {
+	public boolean delete(@RequestParam Map<String, Object> menuMap) {
 		menuService.delete(menuMap);
-		log.info("삭제값 : {}", menuService.menulist());
+		log.info("삭제값 : {}", menuService.delete(menuMap));
 		
 		return true;
 	}

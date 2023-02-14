@@ -2,8 +2,6 @@ package kr.hizju.cafekiosk.vo;
 
 import java.util.Date;
 
-import javax.swing.Spring;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

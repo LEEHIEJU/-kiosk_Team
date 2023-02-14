@@ -18,7 +18,7 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-	@GetMapping("/")
+	@GetMapping("/admin")
 	public String Admin(Model model) {
 		model.addAttribute("serverTime", LocalDateTime.now());
 		model.addAttribute("adminVO", adminService.pw("1234"));

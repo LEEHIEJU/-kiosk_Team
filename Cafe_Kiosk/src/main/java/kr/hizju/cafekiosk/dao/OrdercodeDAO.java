@@ -7,6 +7,6 @@ import kr.hizju.cafekiosk.vo.OrderCodeVO;
 
 public interface OrdercodeDAO {
 	
-	List<OrderCodeVO> selectList() throws SQLException;
+	List<OrderCodeVO> ordercodepage() throws SQLException;
 
 }

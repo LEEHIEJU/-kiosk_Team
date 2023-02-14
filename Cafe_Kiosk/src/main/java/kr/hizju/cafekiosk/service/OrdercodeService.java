@@ -7,6 +7,6 @@ import kr.hizju.cafekiosk.vo.OrderCodeVO;
 
 public interface OrdercodeService {
 	
-	List<OrderCodeVO> selectList();
+	List<OrderCodeVO> ordercodepage();
 
 }
