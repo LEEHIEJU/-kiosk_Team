@@ -13,7 +13,6 @@ import kr.hizju.cafekiosk.service.MenuService;
 import kr.hizju.cafekiosk.vo.MenuVO;
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
 @RestController
 @Slf4j
 public class MenuController {

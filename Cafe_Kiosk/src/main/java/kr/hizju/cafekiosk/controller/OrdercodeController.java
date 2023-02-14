@@ -14,7 +14,6 @@ import kr.hizju.cafekiosk.vo.OrderCodeVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RestController
 @Slf4j
 public class OrdercodeController {
 	
@@ -22,12 +21,12 @@ public class OrdercodeController {
 	private OrdercodeService ordercodeService;
 
 	@GetMapping("/")
-	public List<OrderCodeVO> ordercodepage(Model model){
+	public String ordercodepage(Model model){
 		List<OrderCodeVO> orderList = ordercodeService.ordercodepage();
 		model.addAttribute("serverTime", LocalDateTime.now());
-		log.info("주문화면 {} : ", ordercodeService.ordercodepage());
+		model.addAttribute("list", orderList);
 		
-		return orderList;
+		return "ordercodepage";
 		
 	}
 
