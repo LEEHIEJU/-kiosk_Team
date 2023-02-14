@@ -1,6 +1,5 @@
 package kr.hizju.cafekiosk.vo;
 
-import javax.swing.Spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

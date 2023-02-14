@@ -1,8 +1,8 @@
 package kr.hizju.cafekiosk.service;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,23 +29,37 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public void menusearch(MenuVO menuVO) {
-
+	public boolean insert(Map<String, Object> menuMap) {
+		try {
+			menuDAO.insert(menuMap);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	@Override
-	public void insert(MenuVO menuVO) {
+	public boolean update(Map<String, Object> menuMap) {
+		try {
+			menuDAO.update(menuMap);
+		} catch (SQLException e) {
 
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	@Override
-	public void update(MenuVO menuVO) {
-
+	public boolean delete(Map<String, Object> menuMap) {
+		try {
+			menuDAO.delete(menuMap);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return true;
 	}
 
-	@Override
-	public void delete(int idx) {
-
-	}
-
+	
 }

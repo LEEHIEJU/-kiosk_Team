@@ -1,8 +1,7 @@
 package kr.hizju.cafekiosk.service;
 
 import java.util.List;
-
-import org.springframework.ui.Model;
+import java.util.Map;
 
 import kr.hizju.cafekiosk.vo.MenuVO;
 
@@ -10,16 +9,13 @@ public interface MenuService {
 
 	List<MenuVO> menulist();
 
-	// 검색하기
-	void menusearch(MenuVO menuVO);
-
 	// 저장하기
-	void insert(MenuVO menuVO);
+	boolean insert(Map<String, Object> menuMap);
 
 	// 수정하기
-	void update(MenuVO menuVO);
+	boolean update(Map<String, Object> menuMap);
 
 	// 삭제하기
-	void delete(int idx);
+	boolean delete(Map<String, Object> menuMap);
 
 }

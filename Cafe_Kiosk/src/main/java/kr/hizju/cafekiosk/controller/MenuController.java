@@ -1,13 +1,11 @@
 package kr.hizju.cafekiosk.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.hizju.cafekiosk.service.MenuService;
@@ -28,29 +26,29 @@ public class MenuController {
 		log.info("받은값 : {}", menuService.menulist());
 		return list;
 	}
+	
+	@GetMapping("/insertmenu")
+	public boolean insert(Map<String, Object> menuMap) {
+		menuService.insert(menuMap);
+		log.info("저장값 : {}", menuService.menulist());
 
-	@GetMapping("/search")
-	public String menuSearch(Model model) {
-
-		return "menuSearch";
+		return true;
 	}
 
-	@GetMapping("/insert")
-	public String insert() {
-
-		return "insert";
+	@GetMapping("/updatemenu")
+	public boolean update(Map<String, Object> menuMap) {
+		menuService.update(menuMap);
+		log.info("수정값 : {}", menuService.menulist());
+		
+		return true;
 	}
 
-	@GetMapping("/update")
-	public String update() {
-
-		return "update";
-	}
-
-	@GetMapping("/delete")
-	public String delete() {
-
-		return "delete";
+	@GetMapping("/deletemenu")
+	public boolean delete(Map<String, Object> menuMap) {
+		menuService.delete(menuMap);
+		log.info("삭제값 : {}", menuService.menulist());
+		
+		return true;
 	}
 
 }

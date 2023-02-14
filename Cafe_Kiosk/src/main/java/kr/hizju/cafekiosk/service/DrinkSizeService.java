@@ -6,6 +6,10 @@ import kr.hizju.cafekiosk.vo.DrinkSizeVO;
 
 public interface DrinkSizeService {
 	
-	List<DrinkSizeVO> selectList();
+	List<DrinkSizeVO> drinksizelist();
+	
+	void sizeup(DrinkSizeVO drinkSizeVO);
+	
+	void iceup(DrinkSizeVO drinkSizeVO);
 
 }

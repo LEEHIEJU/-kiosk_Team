@@ -13,27 +13,22 @@
 			MENU
 	</select>
 	
-		<!-- 메뉴 검색 -->
-	<select id="searchmenu" parameterType="string" resultType="MenuVO">
-	select * from MENU where foodname = #{foodname}
-	</select>
-	
 	<!-- 메뉴 저장 -->
-	<select id="insert" parameterType="map" resultType="MenuVO">
+	<insert id="insert" parameterType="map">
 	insert into MENU foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
 	where foodnum=#{foodnum}
-	</select>
+	</insert>
 	
 	<!-- 메뉴 수정 -->
-	<select id="update" parameterType="map" resultType="MenuVO">
+	<update id="update" parameterType="map">
 	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, foodsoldout=#{foodsoldout}
 	where foodnum=#{foodnum}
-	</select>
+	</update>
 	
 	<!-- 메뉴 삭제 -->
-	<select id="delete" parameterType="map" resultType="MenuVO">
+	<delete id="delete" parameterType="map">
 	delete from MENU where foodnum= #{foodnum}
-	</select>
+	</delete>
 	
 	
 	</mapper>
