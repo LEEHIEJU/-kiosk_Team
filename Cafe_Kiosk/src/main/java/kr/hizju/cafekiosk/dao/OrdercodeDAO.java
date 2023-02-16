@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.ui.Model;
 
 import kr.hizju.cafekiosk.vo.OrderCodeVO;
 

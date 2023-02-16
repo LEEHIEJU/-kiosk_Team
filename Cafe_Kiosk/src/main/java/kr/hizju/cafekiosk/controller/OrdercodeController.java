@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import kr.hizju.cafekiosk.service.OrdercodeService;
 import kr.hizju.cafekiosk.vo.OrderCodeVO;
@@ -22,6 +21,7 @@ public class OrdercodeController {
 
 	@GetMapping("/")
 	public String ordercodepage(Model model){
+		log.info("받은값 : " + ordercodeService.ordercodepage());
 		List<OrderCodeVO> orderList = ordercodeService.ordercodepage();
 		model.addAttribute("serverTime", LocalDateTime.now());
 		model.addAttribute("list", orderList);

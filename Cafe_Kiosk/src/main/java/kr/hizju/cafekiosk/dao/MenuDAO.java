@@ -2,7 +2,6 @@ package kr.hizju.cafekiosk.dao;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,6 +15,9 @@ public interface MenuDAO {
 
 	// 하나의 메뉴만 보여주기
 	MenuVO menuinfo(String foodnum) throws SQLException;
+	
+	// 메뉴 카테고리
+	List<MenuVO> menucategory(String foodtype) throws SQLException;
 	
 	// 저장하기
 	void insert(MenuVO menuVO) throws SQLException;

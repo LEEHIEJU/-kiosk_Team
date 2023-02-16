@@ -22,7 +22,7 @@ public class MenuController {
 	@Autowired
 	private MenuService menuService;
 
-	@GetMapping("/menu")
+	@GetMapping("/menu") // get : 조회
 	public List<MenuVO> menulist() {
 		List<MenuVO> list = menuService.menulist();
 		log.info("받은값 : {}", menuService.menulist());
@@ -36,7 +36,15 @@ public class MenuController {
 		return menuVO;
 	}
 	
-	@PostMapping("/insertmenu")
+	@GetMapping("/menucategory")
+	public List<MenuVO> menucate(@RequestParam String foodtype) {
+		log.info("받은값 : {}", foodtype);
+		List<MenuVO> menucate = menuService.menucategory(foodtype);
+		return menucate;
+	}
+	
+	
+	@PostMapping("/insertmenu") // post : 입력
 	public String insert(@ModelAttribute MenuVO menuVO) {
 		log.info("저장값 : {}", menuVO);
 		menuService.insert(menuVO);

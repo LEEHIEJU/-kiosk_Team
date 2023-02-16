@@ -2,7 +2,6 @@ package kr.hizju.cafekiosk.service;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +39,19 @@ public class MenuServiceImpl implements MenuService {
 		return menuVO;
 	}
 
+	@Override
+	public List<MenuVO> menucategory(String foodtype) {
+		List<MenuVO> menucate = null;
+		try {
+			menucate = menuDAO.menucategory(foodtype);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return menucate;
+	}
+	
+	
 
 	@Override
 	public boolean insert(MenuVO menuVO) {
@@ -74,6 +86,5 @@ public class MenuServiceImpl implements MenuService {
 		return true;
 	}
 
-	
 	
 }

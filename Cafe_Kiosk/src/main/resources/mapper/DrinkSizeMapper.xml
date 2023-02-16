@@ -6,23 +6,16 @@
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
 	<!-- 음료사이즈 -->
-	<select id="drinksizelist" parameterType="string" resultType="MenuVO">
+	<select id="drinksizelist" parameterType="string" resultType="DrinkSizeVO">
 		select 
-		DRINKSIZEID AS foodnum,
-		HOTSMALL AS hotsmall,
-		ICESMALL AS icesmall,
-		HOTLARGE AS hotlarge,
-		ICELARGE AS icelarge
-		from DRINKSIZE, Menu
-		where driinksize foodnum = menu foodnum
+		*
+		from DRINKSIZE
 		
 	</select>
 	
 	<!-- 사이즈 업 -->
 	<select id="sizeup" parameterType="string">
-		select 
-		#{HOTLARGE } as hotlarge + 1000
-		#{ICELARGE } as icelarge + 1500
+		select
 		from DRINKSIZE
 	</select>
 	

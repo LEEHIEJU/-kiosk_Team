@@ -1,7 +1,6 @@
 package kr.hizju.cafekiosk.service;
 
 import java.util.List;
-import java.util.Map;
 
 import kr.hizju.cafekiosk.vo.MenuVO;
 
@@ -12,6 +11,9 @@ public interface MenuService {
 
 	// 하나의 메뉴 보여주기
 	MenuVO menuinfo(String foodnum);
+	
+	// 메뉴 카테고리
+	List<MenuVO> menucategory(String foodtype);
 	
 	// 저장하기
 	boolean insert(MenuVO menuVO);
