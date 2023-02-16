@@ -7,15 +7,19 @@ import kr.hizju.cafekiosk.vo.MenuVO;
 
 public interface MenuService {
 
+	// 전체 메뉴 보여주기
 	List<MenuVO> menulist();
 
+	// 하나의 메뉴 보여주기
+	MenuVO menuinfo(String foodnum);
+	
 	// 저장하기
-	boolean insert(Map<String, Object> menuMap);
+	boolean insert(MenuVO menuVO);
 
 	// 수정하기
-	boolean update(Map<String, Object> menuMap);
+	boolean update(MenuVO menuVO);
 
 	// 삭제하기
-	boolean delete(Map<String, Object> menuMap);
+	boolean delete(String foodnum);
 
 }

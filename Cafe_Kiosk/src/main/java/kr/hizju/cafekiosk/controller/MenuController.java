@@ -1,11 +1,13 @@
 package kr.hizju.cafekiosk.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,26 +29,33 @@ public class MenuController {
 		return list;
 	}
 	
-	@GetMapping("/insertmenu")
-	public boolean insert(@RequestParam Map<String, Object> menuMap) {
-		menuService.insert(menuMap);
-		log.info("저장값 : {}", menuService.insert(menuMap));
+	@GetMapping("/menuone")
+	public MenuVO menuVO(@RequestParam String foodnum) {
+		log.info("받은값 : {}", foodnum);
+		MenuVO menuVO = menuService.menuinfo(foodnum);
+		return menuVO;
+	}
+	
+	@PostMapping("/insertmenu")
+	public String insert(@ModelAttribute MenuVO menuVO) {
+		log.info("저장값 : {}", menuVO);
+		menuService.insert(menuVO);
 
-		return true;
+		return "main";
 	}
 
-	@GetMapping("/updatemenu")
-	public boolean update(@RequestParam Map<String, Object> menuMap) {
-		menuService.update(menuMap);
-		log.info("수정값 : {}", menuService.update(menuMap));
+	@PutMapping("/updatemenu")
+	public boolean update(@ModelAttribute MenuVO menuVO) {
+		log.info("수정값 : {}", menuVO);
+		menuService.update(menuVO);
 		
 		return true;
 	}
 
-	@GetMapping("/deletemenu")
-	public boolean delete(@RequestParam Map<String, Object> menuMap) {
-		menuService.delete(menuMap);
-		log.info("삭제값 : {}", menuService.delete(menuMap));
+	@DeleteMapping("/deletemenu")
+	public boolean delete(@RequestParam String foodnum) {
+		log.info("삭제값 : {}", foodnum);
+		menuService.delete(foodnum);
 		
 		return true;
 	}

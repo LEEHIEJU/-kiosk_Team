@@ -27,11 +27,24 @@ public class MenuServiceImpl implements MenuService {
 		}
 		return list;
 	}
+	
+	@Override
+	public MenuVO menuinfo(String foodnum) {
+		MenuVO menuVO = null;
+		try {
+			menuVO = menuDAO.menuinfo(foodnum);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return menuVO;
+	}
+
 
 	@Override
-	public boolean insert(Map<String, Object> menuMap) {
+	public boolean insert(MenuVO menuVO) {
 		try {
-			menuDAO.insert(menuMap);
+			menuDAO.insert(menuVO);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -40,9 +53,9 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public boolean update(Map<String, Object> menuMap) {
+	public boolean update(MenuVO menuVO) {
 		try {
-			menuDAO.update(menuMap);
+			menuDAO.update(menuVO);
 		} catch (SQLException e) {
 
 			e.printStackTrace();
@@ -51,9 +64,9 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public boolean delete(Map<String, Object> menuMap) {
+	public boolean delete(String foodnum) {
 		try {
-			menuDAO.delete(menuMap);
+			menuDAO.delete(foodnum);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -61,5 +74,6 @@ public class MenuServiceImpl implements MenuService {
 		return true;
 	}
 
+	
 	
 }
