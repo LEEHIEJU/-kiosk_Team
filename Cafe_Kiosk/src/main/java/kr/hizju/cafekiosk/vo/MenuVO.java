@@ -15,4 +15,6 @@ public class MenuVO {
 	private String foodsoldout;
 	private int foodlev;
 
+
 }
+

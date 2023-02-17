@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DrinkSizeVO {
-	private int drinksizeid;
-	private String hotsmall; 
-	private String icesmall;
-	private String hotlarge;
-	private String icelarge;
+	private String foodnum;
+	private String drinksizetype;
+	private int plusprice;
 
 	
 }

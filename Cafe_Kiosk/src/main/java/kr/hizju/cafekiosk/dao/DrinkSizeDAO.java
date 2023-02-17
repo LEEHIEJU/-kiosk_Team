@@ -1,17 +1,15 @@
 package kr.hizju.cafekiosk.dao;
 
 import java.sql.SQLException;
-import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 
 import kr.hizju.cafekiosk.vo.DrinkSizeVO;
 
+@Mapper
 public interface DrinkSizeDAO {
 
-	// 1. 모두얻기
-	List<DrinkSizeVO> drinksizelist() throws SQLException;
-	
-	void sizeup(DrinkSizeVO drinkSizeVO) throws SQLException;
-	
-	void iceup(DrinkSizeVO drinkSizeVO) throws SQLException;
+	// 음료 사이즈 업
+	DrinkSizeVO sizeup(String drinksizetype) throws SQLException;
 
 }

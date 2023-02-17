@@ -5,25 +5,12 @@
 <mapper namespace="kr.hizju.cafekiosk.dao.DrinkSizeDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
-	<!-- 음료사이즈 -->
-	<select id="drinksizelist" parameterType="string" resultType="DrinkSizeVO">
-		select 
-		*
+	<!-- 아이스 / 사이즈 업 -->
+	<select id="sizeup" parameterType="string" resultType="DrinkSizeVO">
+		select * 
 		from DRINKSIZE
-		
+		where drinksizetype = #{drinksizetype}
 	</select>
 	
-	<!-- 사이즈 업 -->
-	<select id="sizeup" parameterType="string">
-		select
-		from DRINKSIZE
-	</select>
-	
-	<!-- 아이스 업 -->
-	<select id="iceup" parameterType="string">
-		select 
-		#{ICESMALL} as icesmall + 500
-		from DRINKSIZE	
-	</select>
 	
 </mapper>
