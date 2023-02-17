@@ -11,6 +11,9 @@ public interface MenuService {
 	// 하나의 메뉴 보여주기
 	List<MenuVO> menuinfo(String foodnum);
 	
+	// 음료 사이즈업(가격)
+	List<MenuVO> sizeup(String drinksizetype);
+	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype);
 	

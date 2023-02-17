@@ -21,6 +21,15 @@
 			 
 	</select>
 	
+	<!-- 아이스 / 사이즈 업(메뉴에 따른 가격) -->
+	<select id="sizeup" parameterType="string" resultType="MenuVO">
+		select d.*, m.*
+		from drinksize d
+		join menu m
+		on m.foodnum = d.foodnum
+		where d.drinksizetype = #{drinksizetype}
+	</select>
+	
 	<!-- 메뉴 카테고리 -->
 	<select id="menucategory" parameterType="string" resultType="MenuVO">
 		SELECT *
