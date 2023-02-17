@@ -1,8 +1,12 @@
 package kr.hizju.cafekiosk.vo;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class OrderNumVO {
 	private int idx;
@@ -10,21 +14,6 @@ public class OrderNumVO {
 	private int ordercount;
 	private int ordernum;
 	private int foodnum;
-	
-	public OrderNumVO(int idx, int foodstock, int ordercount, int ordernum, int foodnum) {
-		super();
-		this.idx = idx;
-		this.foodstock = foodstock;
-		this.ordercount = ordercount;
-		this.ordernum = ordernum;
-		this.foodnum = foodnum;
-	}
-
-	@Override
-	public String toString() {
-		return "OrderNumVO [idx=" + idx + ", foodstock=" + foodstock + ", ordercount=" + ordercount + ", ordernum="
-				+ ordernum + ", foodnum=" + foodnum + "]";
-	}
 	
 	
 }

@@ -11,12 +11,23 @@
 	<!-- 주문화면 -->
 	<select id="ordercodepage" resultType="OrderCodeVO">
 		select 
-		#{ORDERNUM, jdbcType=VARCHAR } as ordernum, 
-		#{ORDERWHERE, jdbcType=VARCHAR } as orderwhere, 
-		#{ORDERIN, jdbcType=VARCHAR } as orderin,
+		#{ORDERNUM} as ordernum, 
+		#{ORDERWHERE} as orderwhere, 
+		#{ORDERIN} as orderin,
 		sysdate as today,
-		#{COUPON, jdbcType=VARCHAR } as coupon
+		#{COUPON} as coupon
 		from ORDERCODE
 	</select>
+	
+	<!-- 주문 -->
+	<insert id="insert" parameterType="OrderCodeVO">
+	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev)
+		values (#{foodnum},
+		 		#{foodname}, 
+                #{foodtype},
+                #{foodprice}, 
+                #{foodsoldout},
+                #{foodlev})
+	</insert>
 	
 </mapper>
