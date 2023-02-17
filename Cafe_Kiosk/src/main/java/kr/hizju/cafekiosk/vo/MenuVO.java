@@ -14,6 +14,8 @@ public class MenuVO {
 	private int foodprice;
 	private String foodsoldout;
 	private int foodlev;
+	
+	private String drinksizetype;
 
 
 }

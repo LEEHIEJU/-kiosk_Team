@@ -1,6 +1,8 @@
 package kr.hizju.cafekiosk.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +20,9 @@ public class DrinkSizeController {
 	private DrinkSizeService drinkSizeService;
 
 	@GetMapping("/drinksize")
-	public DrinkSizeVO sizeup(@RequestParam String drinksizetype) {
+	public List<DrinkSizeVO> sizeup(@RequestParam String drinksizetype) {
 		log.info("음료사이즈 {} =", drinksizetype);
-		DrinkSizeVO drinkSizeVO = drinkSizeService.sizeup(drinksizetype);
+		List<DrinkSizeVO> drinkSizeVO = drinkSizeService.sizeup(drinksizetype);
 		return drinkSizeVO;
 	}
 	

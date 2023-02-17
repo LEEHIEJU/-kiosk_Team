@@ -2,6 +2,7 @@ package kr.hizju.cafekiosk.service;
 
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,8 @@ public class DrinkSizeServiceImpl implements DrinkSizeService {
 	private DrinkSizeDAO drinkSizeDAO;
 
 	@Override
-	public DrinkSizeVO sizeup(String drinksizetype) {
-		DrinkSizeVO drinkSizeVO = null;
+	public List<DrinkSizeVO> sizeup(String drinksizetype) {
+		List<DrinkSizeVO> drinkSizeVO = null;
 		try {
 			drinkSizeVO = drinkSizeDAO.sizeup(drinksizetype);
 		} catch (SQLException e) {

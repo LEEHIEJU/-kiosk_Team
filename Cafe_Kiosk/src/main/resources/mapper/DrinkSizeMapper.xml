@@ -5,10 +5,10 @@
 <mapper namespace="kr.hizju.cafekiosk.dao.DrinkSizeDAO">
 	<!-- namespace를 인터페이스 이름과 일치 시켜야 한다. -->
 	
-	<!-- 아이스 / 사이즈 업 -->
+	<!-- 아이스 / 사이즈 업(가격) -->
 	<select id="sizeup" parameterType="string" resultType="DrinkSizeVO">
 		select * 
-		from DRINKSIZE
+		from drinksize
 		where drinksizetype = #{drinksizetype}
 	</select>
 	

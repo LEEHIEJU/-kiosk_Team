@@ -30,9 +30,9 @@ public class MenuController {
 	}
 	
 	@GetMapping("/menuone")
-	public MenuVO menuVO(@RequestParam String foodnum) {
+	public List<MenuVO> menuVO(@RequestParam String foodnum) {
 		log.info("받은값 : {}", foodnum);
-		MenuVO menuVO = menuService.menuinfo(foodnum);
+		List<MenuVO> menuVO = menuService.menuinfo(foodnum);
 		return menuVO;
 	}
 	
@@ -52,7 +52,7 @@ public class MenuController {
 		return "main";
 	}
 
-	@PutMapping("/updatemenu")
+	@PutMapping("/updatemenu") // put : 수정
 	public boolean update(@ModelAttribute MenuVO menuVO) {
 		log.info("수정값 : {}", menuVO);
 		menuService.update(menuVO);
@@ -60,7 +60,7 @@ public class MenuController {
 		return true;
 	}
 
-	@DeleteMapping("/deletemenu")
+	@DeleteMapping("/deletemenu") // delete : 삭제
 	public boolean delete(@RequestParam String foodnum) {
 		log.info("삭제값 : {}", foodnum);
 		menuService.delete(foodnum);

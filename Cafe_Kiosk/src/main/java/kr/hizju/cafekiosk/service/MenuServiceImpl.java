@@ -28,8 +28,8 @@ public class MenuServiceImpl implements MenuService {
 	}
 	
 	@Override
-	public MenuVO menuinfo(String foodnum) {
-		MenuVO menuVO = null;
+	public List<MenuVO> menuinfo(String foodnum) {
+		List<MenuVO> menuVO = null;
 		try {
 			menuVO = menuDAO.menuinfo(foodnum);
 		} catch (SQLException e) {

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-
 import kr.hizju.cafekiosk.vo.MenuVO;
 
 @Mapper
@@ -14,7 +13,7 @@ public interface MenuDAO {
 	List<MenuVO> menulist() throws SQLException;
 
 	// 하나의 메뉴만 보여주기
-	MenuVO menuinfo(String foodnum) throws SQLException;
+	List<MenuVO> menuinfo(String foodnum) throws SQLException;
 	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype) throws SQLException;

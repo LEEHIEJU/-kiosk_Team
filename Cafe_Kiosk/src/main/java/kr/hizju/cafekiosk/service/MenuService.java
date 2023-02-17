@@ -1,7 +1,6 @@
 package kr.hizju.cafekiosk.service;
 
 import java.util.List;
-
 import kr.hizju.cafekiosk.vo.MenuVO;
 
 public interface MenuService {
@@ -10,7 +9,7 @@ public interface MenuService {
 	List<MenuVO> menulist();
 
 	// 하나의 메뉴 보여주기
-	MenuVO menuinfo(String foodnum);
+	List<MenuVO> menuinfo(String foodnum);
 	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype);

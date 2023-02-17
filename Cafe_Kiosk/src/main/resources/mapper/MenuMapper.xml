@@ -14,8 +14,10 @@
 	<!-- 메뉴 상세정보 -->
 	<select id="menuinfo" parameterType="string" resultType="MenuVO">
 	    select m.*, d.drinksizetype
-			from menu m, drinksize d
-				where m.foodnum = d.foodnum and m.foodnum = #{foodnum}
+			from menu m
+				join drinksize d
+					on m.foodnum = d.foodnum
+						where m.foodnum = #{foodnum}
 			 
 	</select>
 	
