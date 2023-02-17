@@ -8,6 +8,6 @@ public interface OrdercodeService {
 	
 	String today();
 	
-	List<OrderCodeVO> ordercodepage();
+	List<OrderCodeVO> ordercodepage(String orderwhere);
 
 }

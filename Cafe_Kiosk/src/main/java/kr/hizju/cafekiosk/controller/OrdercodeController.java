@@ -18,15 +18,20 @@ public class OrdercodeController {
 	
 	@Autowired
 	private OrdercodeService ordercodeService;
-
+	
 	@GetMapping("/")
-	public String ordercodepage(Model model){
-		log.info("받은값 : " + ordercodeService.ordercodepage());
-		List<OrderCodeVO> orderList = ordercodeService.ordercodepage();
+	public String today(Model model){
+		log.info("severTime {} : ", LocalDateTime.now());
 		model.addAttribute("serverTime", LocalDateTime.now());
-		model.addAttribute("list", orderList);
+		return "index";
 		
-		return "ordercodepage";
+	}
+
+	@GetMapping("/orderpage")
+	public List<OrderCodeVO> ordercodepage(String orderwhere){
+		List<OrderCodeVO> orderList = ordercodeService.ordercodepage(orderwhere);
+		log.info("받은값 : {} " , orderwhere);
+		return orderList;
 		
 	}
 

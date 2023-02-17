@@ -3,31 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.hizju.cafekiosk.dao.OrdercodeDAO">
-	<!-- 현재날짜 -->
-	<select id="today" resultType="string">
-		select sysdate from ordercode
+
+	<!-- 기본화면 -->
+	<select resultType="string" id="today">
+	select sysdate from ordercode 
 	</select>
 	
 	<!-- 주문화면 -->
-	<select id="ordercodepage" resultType="OrderCodeVO">
-		select 
-		#{ORDERNUM} as ordernum, 
-		#{ORDERWHERE} as orderwhere, 
-		#{ORDERIN} as orderin,
-		sysdate as today,
-		#{COUPON} as coupon
-		from ORDERCODE
+	<select id="ordercodepage" parameterType="string" resultType="OrderCodeVO">
+		select * from ordercode
+		where orderwhere = #{orderwhere}
 	</select>
-	
-	<!-- 주문 -->
-	<insert id="insert" parameterType="OrderCodeVO">
-	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev)
-		values (#{foodnum},
-		 		#{foodname}, 
-                #{foodtype},
-                #{foodprice}, 
-                #{foodsoldout},
-                #{foodlev})
-	</insert>
+
 	
 </mapper>

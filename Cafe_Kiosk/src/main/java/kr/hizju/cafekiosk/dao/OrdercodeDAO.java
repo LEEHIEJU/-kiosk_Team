@@ -12,6 +12,6 @@ public interface OrdercodeDAO {
 	
 	String today() throws SQLException;
 	
-	List<OrderCodeVO> ordercodepage() throws SQLException;
+	List<OrderCodeVO> ordercodepage(String orderwhere) throws SQLException;
 
 }
