@@ -6,10 +6,10 @@
 </head>
 <body>
 	<h1>upload file 목록</h1>
-	<ul th:each="file: ${files}">
+	<ul th:each="file: ${folder}">
 		<li >
-			<span th:text="${file.fileName}"></span> 
-            <a href="#" th:href="${'/download?uuid='+file.uuid+'&fileName='+file.fileName}">[download]</a>
+			<span th:text="${file.fileName}"></span>
+			<a href="#" th:href="${'/download?uuid='+file.uuid+'&fileName='+file.fileName}">[download]</a>      
 		</li>
 	</ul>
 </body>

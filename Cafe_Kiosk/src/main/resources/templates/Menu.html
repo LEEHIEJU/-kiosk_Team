@@ -1,22 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>테스트</title>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Cafe Kiosk System☆★☆★</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
 
-	<h2> 메뉴 : [[{${menulist}]]</h2>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
 
-	<h2> 메뉴 상세정보 : [[{${menuone}]]</h2>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://unpkg.com/jquery@3.6.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
 
-	<h2>음료사이즈에 따른 가격 : [[${drinksize}]]</h2>
+</head> 
+<br>
+  <container class="orderPage">
+  <div class="category"> 
+        <div class="categoryCoffee" onclick="moveCoffee()" style="background-color: blue;">
+            <span> COFFEE </span>
+        </div>
+    
+        <div class="categoryBeverage" onclick="moveBeverage()">
+           <span> BEVERAGE </span>
+        </div>
+    
+        <div class="categoryDesert" onclick="moveDessert()">
+          <span> DESSERT </span>
+        </div>
+  </div>
 
-	<h2> 메뉴 카테고리 : [[{${menucategory}]]</h2>
+  <div class="menuList"> 
+    <div class="coffeeList" >
+      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menucate}" th:if="${menu.foodtype == 'COFFEE'}">
+        <img th:src="${menu.image}" class="coffeeImg">
+        <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
+        <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
+      </a>
+    </div>
+  </div>
+  <!-- 팝업 창 띄우기 -->
+  <div>
 
-	<h2>메뉴저장 : [[{${insertmenu}]]</h2>
-	<h2>메뉴수정 : [[{${updatemenu}]]</h2>
-	<h2>메뉴삭제 : [[{${deletemenu}]]</h2>
+  </div>
+  
+  <form class="payment"> 
+    <div class="addMenu"></div>
+    <div class="calcOrder">
+      <input type="submit" value="계산하기" class="btn">
+    </div>
+    <input type="button" value="추가하기" class="btn">
+  </form>
+  </container>
+
+  <div id= "modal"> </div>
+      <div id = "orderMenu">
+          <img src="./images/coffee_01.png" class="coffeeImg">
+          <span id="orderTitle"> 주문 하기</span>
+          <div id="close_button" style ="cursor: pointer;
+          "> x </div>
+          <span id="selectName" class="select"> 메뉴&nbsp;이름 </span> <span id="selectedName"> 아메리카노 </span> </br>
+          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 5000 </span> </br>
+          <span id="selectTemp" class="select"> 핫/아이스 </span> <div id="selectHot" onclick="choiceHot()"> HOT </div> <div id="selectIce" onclick="choiceIce()"> ICE </div>
+          <span id="selectSize" class="select"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div id="selectSmall" onclick="choiceSmall()"> SMALL </div> <div id="selectLarge" onclick="choiceLarge()"> LARGE </div>
+          <input type="button" value="주문하기" class="orderBtn"> 
+        </div>
+      </div>
 
 </body>
+<script>
+
+function addProduct()  {
+  const testDiv = document.getElementById('test');  
+  const newNode = testDiv.cloneNode(true);
+  idNum++;
+  newNode.id = 'deepCopyNode' + idNum;
+  testDiv.after(newNode);
+}
+
+$(document).ready(function() {
+
+$(".coffee").click(function() {
+  var thisName = $(this).children(".product-name").text();
+  var thisPrice = $(this).children(".product-price").text();
+  $("#selectedName").text(thisName);
+  $("#selectedPrice").text(thisPrice);     
+
+  $("#orderMenu").fadeIn();
+  $("#modal").fadeIn();
+
+});
+
+$("#close_button").click(function(){
+    $("#orderMenu").fadeOut();
+    $("#modal").fadeOut();
+
+});
+});
+
+function choiceHot(){
+  console.log("Hot");
+  $("#selectIce").css("background-color","#FEEBB6");  
+  $("#selectHot").css("background-color","red");
+}
+
+function choiceIce(){
+  console.log("ICE");
+  $("#selectIce").css("background-color","red");  
+  $("#selectHot").css("background-color","#FEEBB6");
+}
+
+function choiceSmall(){
+  console.log("Small");
+  $("#selectSmall").css("background-color","red");  
+  $("#selectLarge").css("background-color","#FEEBB6");
+}
+
+function choiceLarge(){
+  console.log("Large");
+  $("#selectSmall").css("background-color","#FEEBB6");  
+  $("#selectLarge").css("background-color","red");
+}
+
+
+
+
+
+</script>
+
 </html>

@@ -13,21 +13,10 @@
 	
 	<!-- 메뉴 상세정보(하나의 메뉴만 보기) -->
 	<select id="menuinfo" parameterType="string" resultType="MenuVO">
-	    select m.*, d.drinksizetype
-			from menu m
-				join drinksize d
-					on m.foodnum = d.foodnum
-						where m.foodnum = #{foodnum}
+	    select m.*, d.drinksizetype, d.plusprice
+			from menu m, drinksize d
+				where m.foodnum = #{foodnum} and d.foodnum=#{foodnum}
 			 
-	</select>
-	
-	<!-- 아이스 / 사이즈 업(메뉴에 따른 가격) -->
-	<select id="sizeup" parameterType="string" resultType="MenuVO">
-		select d.*, m.*
-		from drinksize d
-		join menu m
-		on m.foodnum = d.foodnum
-		where d.drinksizetype = #{drinksizetype}
 	</select>
 	
 	<!-- 메뉴 카테고리 -->
@@ -40,19 +29,20 @@
 	
 	<!-- 메뉴 저장 -->
 	<insert id="insert" parameterType="MenuVO">
-	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev)
+	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev, image)
 		values (#{foodnum},
 		 		#{foodname}, 
                 #{foodtype},
                 #{foodprice}, 
                 #{foodsoldout},
-                #{foodlev})
+                #{foodlev},
+                #{image})
 	</insert>
 	
 	<!-- 메뉴 수정 -->
 	<update id="update" parameterType="MenuVO">
 	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, 
-					foodsoldout=#{foodsoldout}, foodlev=#{foodlev}
+					foodsoldout=#{foodsoldout}, foodlev=#{foodlev}, image=#{image}
 			where foodnum=#{foodnum}
 	</update>
 	

@@ -5,9 +5,9 @@ import kr.hizju.cafekiosk.vo.MenuVO;
 
 public interface MenuService {
 
-	// 전체 메뉴 보여주기
+	// 커피 메뉴 보여주기
 	List<MenuVO> menulist();
-
+	
 	// 하나의 메뉴 보여주기
 	List<MenuVO> menuinfo(String foodnum);
 	

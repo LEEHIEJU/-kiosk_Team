@@ -3,19 +3,20 @@ package kr.hizju.cafekiosk.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import kr.hizju.cafekiosk.service.MenuService;
 import kr.hizju.cafekiosk.vo.MenuVO;
 import lombok.extern.slf4j.Slf4j;
 
-@RestController
+@Controller
 @Slf4j
 public class MenuController {
 
@@ -23,20 +24,25 @@ public class MenuController {
 	private MenuService menuService;
 
 	@GetMapping("/menu") // get : 조회
-	public List<MenuVO> menulist() {
+	public String menulist(Model model) {
 		List<MenuVO> list = menuService.menulist();
 		log.info("받은값 : {}", menuService.menulist());
-		return list;
+		model.addAttribute("", list);
+		return "Menu";
 	}
 	
 	@GetMapping("/menuone")
-	public List<MenuVO> menuVO(@RequestParam String foodnum) {
+	public String menuinfo(@RequestParam String foodnum, Model model) {
 		log.info("받은값 : {}", foodnum);
 		List<MenuVO> menuVO = menuService.menuinfo(foodnum);
-		return menuVO;
+		model.addAttribute("hot", menuVO);
+		model.addAttribute("ice", menuVO);
+		model.addAttribute("small", menuVO);
+		model.addAttribute("large", menuVO);
+		return "";
 	}
 	
-	@GetMapping("/drinksize")
+	@GetMapping("/drinksize") 
 	public List<MenuVO> sizeup(@RequestParam String drinksizetype) {
 		log.info("음료사이즈 {} =", drinksizetype);
 		List<MenuVO> menusize = menuService.sizeup(drinksizetype);
@@ -44,10 +50,11 @@ public class MenuController {
 	}
 	
 	@GetMapping("/menucategory")
-	public List<MenuVO> menucate(@RequestParam String foodtype) {
-		log.info("받은값 : {}", foodtype);
+	public String menucate(@RequestParam String foodtype, Model model) {
 		List<MenuVO> menucate = menuService.menucategory(foodtype);
-		return menucate;
+		log.info("받은값 : {}", foodtype);
+		model.addAttribute("menucoffee", menucate);
+		return "Menu";
 	}
 	
 	

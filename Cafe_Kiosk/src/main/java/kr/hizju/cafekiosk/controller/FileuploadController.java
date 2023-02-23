@@ -21,8 +21,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -44,15 +42,15 @@ public class FileuploadController {
 			return "uploadForm";
 		}
 
-		@PostMapping
+		@PostMapping("/upload")
 		// 업로드하는 파일들을 MultipartFile 형태의 파라미터로 전달된다.
 		public String upload(@RequestParam MultipartFile[] uploadfile, Model model, HttpServletRequest request)
 				throws IllegalStateException, IOException {
-			String files = request.getServletContext().getRealPath(filePath);
+			String folder = request.getServletContext().getRealPath(filePath);
 			List<FileuploadVO> list = new ArrayList<>();
 			for (MultipartFile file : uploadfile) {
 				if (!file.isEmpty()) {
-					// UUID를 이용해 unique한 파일 이름을 만들어준다.
+					// UUID를 이용해 unique한 파일 이름을 만들어준다.(파일이름 중복방지)
 					FileuploadVO vo = new FileuploadVO(UUID.randomUUID().toString(), file.getOriginalFilename(), file.getContentType());
 					list.add(vo);
 
@@ -60,9 +58,10 @@ public class FileuploadController {
 					// 전달된 내용을 실제 물리적인 파일로 저장해준다.
 					file.transferTo(newFileName);
 				}
+				return folder;
 			}
-			model.addAttribute("files", list);
-			return files;
+			model.addAttribute("folder", list);
+			return "upload";
 		}
 
 

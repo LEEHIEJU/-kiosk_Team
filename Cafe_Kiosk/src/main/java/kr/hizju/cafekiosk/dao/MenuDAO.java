@@ -9,7 +9,7 @@ import kr.hizju.cafekiosk.vo.MenuVO;
 @Mapper
 public interface MenuDAO {
 	
-    // 전체 메뉴 보여주기
+	// 커피 메뉴 보여주기
 	List<MenuVO> menulist() throws SQLException;
 
 	// 하나의 메뉴만 보여주기
