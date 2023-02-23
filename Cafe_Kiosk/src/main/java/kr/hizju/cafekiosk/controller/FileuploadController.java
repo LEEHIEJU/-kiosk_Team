@@ -54,7 +54,7 @@ public class FileuploadController {
 					FileuploadVO vo = new FileuploadVO(UUID.randomUUID().toString(), file.getOriginalFilename(), file.getContentType());
 					list.add(vo);
 
-					File newFileName = new File(vo.getFilename());
+					File newFileName = new File(filePath + vo.getFilename());
 					// 전달된 내용을 실제 물리적인 파일로 저장해준다.
 					file.transferTo(newFileName);
 				}
@@ -67,7 +67,7 @@ public class FileuploadController {
 
 		@GetMapping("/download")
 		public ResponseEntity<Resource> download(@ModelAttribute FileuploadVO vo) throws IOException {
-			Path path = Paths.get(filePath + "/" + vo.getId() + "_" + vo.getFilename());
+			Path path = Paths.get(filePath + "/" + vo.getFilename());
 			log.info("경로 : " + path.toString());
 			String contentType = Files.probeContentType(path);
 			// header를 통해서 다운로드 되는 파일의 정보를 설정한다.

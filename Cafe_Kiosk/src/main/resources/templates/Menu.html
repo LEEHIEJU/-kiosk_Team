@@ -40,8 +40,18 @@
 
   <div class="menuList"> 
     <div class="coffeeList" >
-      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menucate}" th:if="${menu.foodtype == 'COFFEE'}">
-        <img th:src="${menu.image}" class="coffeeImg">
+      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'COFFEE'}">
+        <img th:src="|./image/${menu.foodname}.png|" class="coffeeImg">
+        <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
+        <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="menuList"> 
+    <div class="coffeeList" >
+      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'BEVERAGE'}">
+        <img th:src="|./image/${menu.foodname}.png|" class="coffeeImg">
         <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
         <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
       </a>
@@ -63,7 +73,7 @@
 
   <div id= "modal"> </div>
       <div id = "orderMenu">
-          <img src="./images/coffee_01.png" class="coffeeImg">
+          <img src="./image/아메리카노.png" class="coffeeImg" id="selectImg">
           <span id="orderTitle"> 주문 하기</span>
           <div id="close_button" style ="cursor: pointer;
           "> x </div>
@@ -91,8 +101,12 @@ $(document).ready(function() {
 $(".coffee").click(function() {
   var thisName = $(this).children(".product-name").text();
   var thisPrice = $(this).children(".product-price").text();
+  var src = "./image/"+thisName+".png";
+  
   $("#selectedName").text(thisName);
-  $("#selectedPrice").text(thisPrice);     
+  $("#selectedPrice").text(thisPrice);
+  $("#selectImg").attr("src",src);
+  console.log(thisName);
 
   $("#orderMenu").fadeIn();
   $("#modal").fadeIn();

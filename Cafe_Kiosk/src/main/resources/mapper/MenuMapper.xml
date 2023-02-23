@@ -7,8 +7,8 @@
 	
 	<!-- 메뉴리스트(메뉴 전체보기) -->
 	<select id="menulist" resultType="MenuVO">
-	    select *
-		from menu m
+	      select *
+	      from menu
 	</select>
 	
 	<!-- 메뉴 상세정보(하나의 메뉴만 보기) -->

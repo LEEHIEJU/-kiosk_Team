@@ -176,7 +176,7 @@ header #adminBtn button {
   border : 5px solid black;
   width: 1500px;
   height: 1200px;
-  background-color: #FEEBB6;
+  background-color: white;
   top : 200px;
   overflow-y : scroll;
 }
@@ -252,6 +252,7 @@ header #adminBtn button {
     width : 30%;
     height : 40%;
     top : 20%;
+    background-color : white;
  }
 
  #orderMenu .select {

@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.hizju.cafekiosk.service.MenuService;
 import kr.hizju.cafekiosk.vo.MenuVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@RequestMapping("/upload")
 @Slf4j
 public class MenuController {
 
@@ -27,7 +30,7 @@ public class MenuController {
 	public String menulist(Model model) {
 		List<MenuVO> list = menuService.menulist();
 		log.info("받은값 : {}", menuService.menulist());
-		model.addAttribute("", list);
+		model.addAttribute("menulist", list);
 		return "Menu";
 	}
 	
@@ -39,7 +42,7 @@ public class MenuController {
 		model.addAttribute("ice", menuVO);
 		model.addAttribute("small", menuVO);
 		model.addAttribute("large", menuVO);
-		return "";
+		return "Menu";
 	}
 	
 	@GetMapping("/drinksize") 
@@ -53,16 +56,15 @@ public class MenuController {
 	public String menucate(@RequestParam String foodtype, Model model) {
 		List<MenuVO> menucate = menuService.menucategory(foodtype);
 		log.info("받은값 : {}", foodtype);
-		model.addAttribute("menucoffee", menucate);
+		model.addAttribute("menulist", menucate);
 		return "Menu";
 	}
 	
 	
 	@PostMapping("/insertmenu") // post : 입력
-	public String insert(@ModelAttribute MenuVO menuVO) {
+	public String insert(@RequestParam("file") MultipartFile file, @ModelAttribute MenuVO menuVO) {
 		log.info("저장값 : {}", menuVO);
 		menuService.insert(menuVO);
-
 		return "main";
 	}
 
