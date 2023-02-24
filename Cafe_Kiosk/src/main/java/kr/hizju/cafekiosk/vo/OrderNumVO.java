@@ -1,6 +1,8 @@
 package kr.hizju.cafekiosk.vo;
 
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class OrderNumVO {
-	private int idx;
-	private int foodstock;
-	private int ordercount;
-	private int ordernum;
-	private int foodnum;
+	private int idx; // 영수증 번호(pk)
+	private int foodstock; // 메뉴 개수
+	private int ordercount; // 총 결제 금액
+	private int ordernum; // 주문번호(fk)
+	private int foodnum; // 메뉴 id(fk)
+	
+	private String orderwhere; // 매장 or 포장
+	private Date orderdate; // 주문 날짜
+	private String coupon; // 쿠폰 사용여부
+	
 	
 	
 }

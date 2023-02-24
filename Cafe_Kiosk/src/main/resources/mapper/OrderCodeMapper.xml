@@ -14,6 +14,31 @@
 		select * from ordercode
 		where orderwhere = #{orderwhere}
 	</select>
+	
+	<!-- 주문내역 -->
+	<select id="orderpage" resultType="OrderNumVO">
+	select *
+	from ordernum
+	</select>
+	
+	<!-- 주문정보 -->
+	<insert id="orderinfo" parameterType="OrderCodeVO">
+	insert into ordercode (orderid, orderwhere, orderdate, coupon)
+		values (#{orderid},
+		 		#{orderwhere}, 
+                #{orderdate},
+                #{coupon})
+	</insert>
+	
+	<!-- 주문 상세정보 -->
+	<insert id="orderdetail" parameterType="OrderNumVO">
+	insert into ordernum (idx, foodstock, ordercount, ordernum, foodnum)
+		values (#{idx},
+		 		#{foodstock}, 
+                #{ordercount},
+                #{ordernum},
+                #{foodnum})
+	</insert>
 
 	
 </mapper>

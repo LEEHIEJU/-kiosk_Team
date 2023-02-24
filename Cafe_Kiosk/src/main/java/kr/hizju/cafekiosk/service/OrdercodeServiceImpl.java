@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.hizju.cafekiosk.dao.OrdercodeDAO;
 import kr.hizju.cafekiosk.vo.OrderCodeVO;
+import kr.hizju.cafekiosk.vo.OrderNumVO;
 
 @Service("ordercodeService")
 public class OrdercodeServiceImpl implements OrdercodeService {
@@ -37,6 +38,40 @@ public class OrdercodeServiceImpl implements OrdercodeService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public List<OrderNumVO> orderpage(String ordernum) {
+		List<OrderNumVO> orderdetaillist = null;
+		try {
+			orderdetaillist = ordercodeDAO.orderpage(ordernum);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return orderdetaillist;
+	}
+
+	@Override
+	public void orderinfo(OrderCodeVO orderCodeVO) {
+		try {
+			ordercodeDAO.orderinfo(orderCodeVO);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void orderdetail(OrderNumVO orderNumVO) {
+		try {
+			ordercodeDAO.orderdetail(orderNumVO);
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		}
+		
 	}
 	
 
