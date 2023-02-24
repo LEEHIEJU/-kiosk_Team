@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.hizju.cafekiosk.dao.MenuDAO;
+import kr.hizju.cafekiosk.vo.DrinksizeVO;
 import kr.hizju.cafekiosk.vo.MenuVO;
 
 @Service("menuService")
@@ -25,6 +26,18 @@ public class MenuServiceImpl implements MenuService {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	@Override
+	public List<DrinksizeVO> drinksizevo(String foodnum) {
+		List<DrinksizeVO> drinksizelist = null;
+		try {
+			drinksizelist = menuDAO.drinksizevo(foodnum);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return drinksizelist;
 	}
 	
 	@Override

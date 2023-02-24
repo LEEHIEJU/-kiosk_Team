@@ -10,38 +10,43 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.hizju.cafekiosk.service.MenuService;
+import kr.hizju.cafekiosk.vo.DrinksizeVO;
 import kr.hizju.cafekiosk.vo.MenuVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/upload")
 @Slf4j
 public class MenuController {
 
 	@Autowired
 	private MenuService menuService;
 
-	@GetMapping("/menu") // get : 조회
+	@GetMapping(value = {"/menu"}) // get : 조회
 	public String menulist(Model model) {
 		List<MenuVO> list = menuService.menulist();
-		log.info("받은값 : {}", menuService.menulist());
+		log.info("리스트 : {}", menuService.menulist());
 		model.addAttribute("menulist", list);
 		return "Menu";
 	}
-	
-	@GetMapping("/menuone")
-	public String menuinfo(@RequestParam String foodnum, Model model) {
+	@ResponseBody
+	@GetMapping(value = {"/menuSize"}) // get : 조회
+	public List<DrinksizeVO> menuSize(@RequestParam() String foodnum) {
 		log.info("받은값 : {}", foodnum);
-		List<MenuVO> menuVO = menuService.menuinfo(foodnum);
-		model.addAttribute("hot", menuVO);
-		model.addAttribute("ice", menuVO);
-		model.addAttribute("small", menuVO);
-		model.addAttribute("large", menuVO);
+		List<DrinksizeVO> drinksizelist = menuService.drinksizevo(foodnum);
+		log.info("drinksizelist : {}", drinksizelist);
+		return drinksizelist;
+	}
+
+	
+	@GetMapping("/menuhigh")
+	public String menuinfo(@RequestParam String foodprice, Model model) {
+		log.info("받은값 : {}", foodprice);
+		List<MenuVO> menuVO = menuService.menuinfo(foodprice);
+		model.addAttribute("menuinfo", menuVO);
 		return "Menu";
 	}
 	
@@ -57,12 +62,12 @@ public class MenuController {
 		List<MenuVO> menucate = menuService.menucategory(foodtype);
 		log.info("받은값 : {}", foodtype);
 		model.addAttribute("menulist", menucate);
-		return "Menu";
+		return "Menulist";
 	}
 	
 	
 	@PostMapping("/insertmenu") // post : 입력
-	public String insert(@RequestParam("file") MultipartFile file, @ModelAttribute MenuVO menuVO) {
+	public String insert(@ModelAttribute MenuVO menuVO) {
 		log.info("저장값 : {}", menuVO);
 		menuService.insert(menuVO);
 		return "main";

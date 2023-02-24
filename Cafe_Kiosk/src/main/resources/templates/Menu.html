@@ -33,34 +33,38 @@
            <span> BEVERAGE </span>
         </div>
     
-        <div class="categoryDesert" onclick="moveDessert()">
+        <div class="categoryDessert" onclick="moveDessert()">
           <span> DESSERT </span>
         </div>
   </div>
 
   <div class="menuList"> 
-    <div class="coffeeList" >
-      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'COFFEE'}">
-        <img th:src="|./image/${menu.foodname}.png|" class="coffeeImg">
-        <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
-        <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
-      </a>
+    <div class="coffeeList">
+        <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'COFFEE'}">
+          <img th:src="|./image/${menu.foodname}.png|" class="menuImg" th:alt="${menu.foodnum}">
+          <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
+          <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
+        </a>  
     </div>
-  </div>
-  
-  <div class="menuList"> 
-    <div class="coffeeList" >
-      <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'BEVERAGE'}">
-        <img th:src="|./image/${menu.foodname}.png|" class="coffeeImg">
-        <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
-        <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
-      </a>
-    </div>
-  </div>
-  <!-- 팝업 창 띄우기 -->
-  <div>
 
+    <div class="beverageList">
+      <a href="javascript:void(0);" class="beverage" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'BEVERAGE'}">
+        <img th:src="|./image/${menu.foodname}.png|" class="menuImg" th:alt="${menu.foodnum}">
+        <div class="product-name" th:text="${menu.foodname}" >아이스티 </div>
+        <div class="product-price" th:text="${menu.foodprice} + 원" > 3000 원</div>
+      </a>
+    </div>
+
+    <div class="dessertList">
+      <a href="javascript:void(0);" class="dessert" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'DESSERT'}">
+        <img th:src="|./image/${menu.foodname}.jpg|" class="menuImg" th:alt="${menu.foodnum}">
+        <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
+        <div class="product-price" th:text="${menu.foodprice} + 원" > 5000 원</div>
+      </a>
+    </div>
   </div>
+
+  <!-- 팝업 창 띄우기 -->
   
   <form class="payment"> 
     <div class="addMenu"></div>
@@ -73,80 +77,223 @@
 
   <div id= "modal"> </div>
       <div id = "orderMenu">
-          <img src="./image/아메리카노.png" class="coffeeImg" id="selectImg">
+          <img src="" id="selectImg">
           <span id="orderTitle"> 주문 하기</span>
-          <div id="close_button" style ="cursor: pointer;
-          "> x </div>
+          <div id="close_button" style ="cursor: pointer;"> x </div>
           <span id="selectName" class="select"> 메뉴&nbsp;이름 </span> <span id="selectedName"> 아메리카노 </span> </br>
-          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 5000 </span> </br>
+          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 3000 </span> </br>
           <span id="selectTemp" class="select"> 핫/아이스 </span> <div id="selectHot" onclick="choiceHot()"> HOT </div> <div id="selectIce" onclick="choiceIce()"> ICE </div>
           <span id="selectSize" class="select"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div id="selectSmall" onclick="choiceSmall()"> SMALL </div> <div id="selectLarge" onclick="choiceLarge()"> LARGE </div>
-          <input type="button" value="주문하기" class="orderBtn"> 
+  
+  		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
+  		  <span id="sizeBox"></span>	
+          <input type="button" value="주문하기" class="orderBtn">
         </div>
       </div>
 
 </body>
 <script>
+window.onload = moveCoffee();
 
-function addProduct()  {
-  const testDiv = document.getElementById('test');  
-  const newNode = testDiv.cloneNode(true);
-  idNum++;
-  newNode.id = 'deepCopyNode' + idNum;
-  testDiv.after(newNode);
-}
-
-$(document).ready(function() {
 
 $(".coffee").click(function() {
+
+  $("#selectIce").css("background-color","#FEEBB6");  
+  $("#selectHot").css("background-color","red");
+  $("#selectSmall").css("background-color","red");  
+  $("#selectLarge").css("background-color","#FEEBB6");
+
+
+  var thisNo = $(this).children(0).attr("alt"); // 하위에 있는 첫번째 자식(img) alt속성값읽기
   var thisName = $(this).children(".product-name").text();
   var thisPrice = $(this).children(".product-price").text();
   var src = "./image/"+thisName+".png";
-  
+
   $("#selectedName").text(thisName);
   $("#selectedPrice").text(thisPrice);
-  $("#selectImg").attr("src",src);
-  console.log(thisName);
+  $("#selectedPrice").val(thisPrice); 
+  $("#selectImg").attr("src",src);    
+
 
   $("#orderMenu").fadeIn();
   $("#modal").fadeIn();
 
+  $.ajax({
+         type: "get",
+         url : "http://localhost/menuSize",
+         headers: {'Content-Type': 'application/json'},
+         data : {"foodnum":thisNo}, // foodnum이름으로 서버에 전송
+         success : function (data){
+            console.log(data);
+            // id값이 sizeBox에 넣어줘야 한다.
+            $("#sizeBox").empty();
+            for(i in data){
+            	$("#sizeBox").append("<input type='hidden' id='" + data[i].drinksizetype + "' value='" + data[i].plusprice + "'>");
+            }
+         },
+         error : function(e){
+         }
+ })
+
 });
+
+$(".beverage").click(function() {
+
+	  $("#selectIce").css("background-color","#FEEBB6");  
+	  $("#selectHot").css("background-color","red");
+	  $("#selectSmall").css("background-color","red");  
+	  $("#selectLarge").css("background-color","#FEEBB6");
+
+
+	  var thisNo = $(this).children(0).attr("alt");
+	  var thisName = $(this).children(".product-name").text();
+	  var thisPrice = $(this).children(".product-price").text();
+	  var src = "./image/"+thisName+".png";
+
+	  $("#selectedName").text(thisName);
+	  $("#selectedPrice").text(thisPrice);
+	  $("#selectedPrice").val(thisPrice); 
+	  $("#selectImg").attr("src",src);    
+
+
+	  $("#orderMenu").fadeIn();
+	  $("#modal").fadeIn();
+	  alert(JSON.stringify(thisNo));
+	  $.ajax({
+	         type: "get",
+	         url : "http://localhost/menuSize",
+	         headers: {'Content-Type': 'application/json'},
+	         data : {"foodnum":thisNo}, // foodnum이름으로 서버에 전송
+	         success : function (data){
+	            console.log(data);
+	            // id값이 sizeBox에 넣어줘야 한다.
+	            $("#sizeBox").empty();
+	            for(i in data){
+	            	$("#sizeBox").append("<input type='hidden' id='" + data[i].drinksizetype + "' value='" + data[i].plusprice + "'>");
+	            }
+	         },
+	         error : function(e){
+	         }
+	 })
+
+	});
+	
+$(".dessert").click(function() {
+
+	  $("#selectIce").css("background-color","#FEEBB6");  
+	  $("#selectHot").css("background-color","red");
+	  $("#selectSmall").css("background-color","red");  
+	  $("#selectLarge").css("background-color","#FEEBB6");
+
+
+	  var thisNo = $(this).children(0).attr("alt");
+	  var thisName = $(this).children(".product-name").text();
+	  var thisPrice = $(this).children(".product-price").text();
+	  var src = "./image/"+thisName+".jpg";
+
+	  $("#selectedName").text(thisName);
+	  $("#selectedPrice").text(thisPrice);
+	  $("#selectedPrice").val(thisPrice); 
+	  $("#selectImg").attr("src",src);    
+
+
+	  $("#orderMenu").fadeIn();
+	  $("#modal").fadeIn();
+
+	  $.ajax({
+	         type: "get",
+	         url : "http://localhost/menuSize",
+	         headers: {'Content-Type': 'application/json'},
+	         data : {"foodnum":thisNo}, // foodnum이름으로 서버에 전송
+	         success : function (data){
+	            console.log(data);
+	            // id값이 sizeBox에 넣어줘야 한다.
+	            $("#sizeBox").empty();
+	            for(i in data){
+	            	$("#sizeBox").append("<input type='hidden' id='" + data[i].drinksizetype + "' value='" + data[i].plusprice + "'>");
+	            }
+	         },
+	         error : function(e){
+	         }
+	 })
+
+	});
 
 $("#close_button").click(function(){
     $("#orderMenu").fadeOut();
     $("#modal").fadeOut();
 
 });
-});
+
+var price1 = 0;
+var price2 = 0;
+sumprice = 0;
+
+function setPrice() {
+  sumPrice =  parseint($("#dfPrice").val() + price1 + price2);
+}
 
 function choiceHot(){
-  console.log("Hot");
   $("#selectIce").css("background-color","#FEEBB6");  
   $("#selectHot").css("background-color","red");
+  console.log($("#HOT").val());
 }
 
 function choiceIce(){
-  console.log("ICE");
   $("#selectIce").css("background-color","red");  
   $("#selectHot").css("background-color","#FEEBB6");
+  console.log($("#ICE").val());
 }
 
 function choiceSmall(){
-  console.log("Small");
   $("#selectSmall").css("background-color","red");  
   $("#selectLarge").css("background-color","#FEEBB6");
+  console.log($("#SMALL").val());
 }
 
 function choiceLarge(){
-  console.log("Large");
   $("#selectSmall").css("background-color","#FEEBB6");  
   $("#selectLarge").css("background-color","red");
+  console.log($("#LARGE").val());
+
 }
 
+function moveCoffee() {
+  $(".coffeeList").css("display","block");
+  $(".categoryCoffee").css("background-color","blue");
+
+  $(".beverageList").css("display","none");
+  $(".categoryBeverage").css("background-color","greenyellow");
+
+  $(".dessertList").css("display","none");
+  $(".categoryDessert").css("background-color","greenyellow");
+
+  }
+  
+  function moveBeverage() {
+    $(".coffeeList").css("display","none");
+   $(".categoryCoffee").css("background-color","greenYellow");
+
+   $(".beverageList").css("display","block");
+   $(".categoryBeverage").css("background-color","blue");
+
+   $(".dessertList").css("display","none");
+   $(".categoryDessert").css("background-color","greenyellow");
 
 
+  }
+  
+  function moveDessert() {
+   $(".coffeeList").css("display","none");
+   $(".categoryCoffee").css("background-color","greenYellow");
 
+   $(".beverageList").css("display","none");
+   $(".categoryBeverage").css("background-color","greenyellow");
+
+   $(".dessertList").css("display","block");
+   $(".categoryDessert").css("background-color","blue");
+
+  }
 
 </script>
 
