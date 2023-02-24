@@ -50,13 +50,6 @@ public class MenuController {
 		return "Menu";
 	}
 	
-	@GetMapping("/drinksize") 
-	public List<MenuVO> sizeup(@RequestParam String drinksizetype) {
-		log.info("음료사이즈 {} =", drinksizetype);
-		List<MenuVO> menusize = menuService.sizeup(drinksizetype);
-		return menusize;
-	}
-	
 	@GetMapping("/menucategory")
 	public String menucate(@RequestParam String foodtype, Model model) {
 		List<MenuVO> menucate = menuService.menucategory(foodtype);

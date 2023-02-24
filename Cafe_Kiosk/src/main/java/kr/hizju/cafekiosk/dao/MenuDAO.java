@@ -20,9 +20,6 @@ public interface MenuDAO {
 	// 하나의 메뉴만 보여주기
 	List<MenuVO> menuinfo(String foodnum) throws SQLException;
 	
-	// 음료 사이즈 업(가격)
-	List<MenuVO> sizeup(String drinksizetype) throws SQLException;
-	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype) throws SQLException;
 	

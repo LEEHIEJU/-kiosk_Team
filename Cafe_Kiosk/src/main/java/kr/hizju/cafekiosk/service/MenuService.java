@@ -10,13 +10,11 @@ public interface MenuService {
 	// 커피 메뉴 보여주기
 	List<MenuVO> menulist();
 	
+	// 음료 사이즈 별 가격 확인하기
 	List<DrinksizeVO> drinksizevo(String foodnum);
 	
 	// 하나의 메뉴 보여주기
 	List<MenuVO> menuinfo(String foodnum);
-	
-	// 음료 사이즈업(가격)
-	List<MenuVO> sizeup(String drinksizetype);
 	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype);

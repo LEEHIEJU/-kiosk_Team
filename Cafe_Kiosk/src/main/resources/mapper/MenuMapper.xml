@@ -11,7 +11,7 @@
 	       from menu
 	</select>
 	
-	<!-- 메뉴 상세정보(하나의 메뉴만 보기) -->
+	<!-- 음료 사이즈 확인하기 -->
 	<select id="drinksizevo" parameterType="string" resultType="DrinkSizeVO">
 	    select m.foodnum, m.foodprice, d.drinksizetype, d.plusprice
 			from menu m, drinksize d
@@ -26,16 +26,7 @@
 			 WHERE foodtype = #{foodtype}
 			 
 	</select>
-	
-	<!-- 아이스 / 사이즈 업(메뉴에 따른 가격) -->
-   <select id="sizeup" parameterType="string" resultType="MenuVO">
-      select d.drinksizetype, d.plusprice
-      from drinksize d
-      join menu m
-      on m.foodnum = d.foodnum
-      where d.drinksizetype = #{drinksizetype}
-   </select>
-	
+
 	<!-- 메뉴 저장 -->
 	<insert id="insert" parameterType="MenuVO">
 	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev, image)

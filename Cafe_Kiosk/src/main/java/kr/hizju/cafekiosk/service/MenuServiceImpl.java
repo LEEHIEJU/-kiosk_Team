@@ -52,20 +52,6 @@ public class MenuServiceImpl implements MenuService {
 		return menuVO;
 	}
 
-
-	@Override
-	public List<MenuVO> sizeup(String drinksizetype) {
-		List<MenuVO> menusize = null;
-		try {
-			menusize = menuDAO.sizeup(drinksizetype);
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		return menusize;
-	}
-
-	
 	@Override
 	public List<MenuVO> menucategory(String foodtype) {
 		List<MenuVO> menucate = null;
