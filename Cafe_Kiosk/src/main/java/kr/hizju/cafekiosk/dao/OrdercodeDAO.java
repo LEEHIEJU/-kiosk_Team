@@ -24,5 +24,6 @@ public interface OrdercodeDAO {
 	
 	// 주문 상세정보
 	void orderdetail(OrderNumVO orderNumVO) throws SQLException;
+	
 
 }

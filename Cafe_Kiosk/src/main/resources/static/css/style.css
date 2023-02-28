@@ -1,5 +1,4 @@
 
-
 .btn {
   width  : 200px;
   height : 100px;
@@ -160,16 +159,6 @@ header #adminBtn button {
   overflow-y : scroll;
 }
 
-.orderPage .payment {
-  position: absolute;
-  top : 0px;
-  width : 660px;
-  height : 1400px;
-  left : 1505px;
-  border : 5px solid black;
-  background-color : yellow;
-}
-
 .menuList .coffeeList .coffee {
   display: block;
   width: 250px;
@@ -224,6 +213,7 @@ header #adminBtn button {
 }
 
 /* 메뉴 팝업 css */
+
 
 #orderMenu {
     width: 1400px;
@@ -373,20 +363,166 @@ header #adminBtn button {
   border-radius: 20px;
  } 
 
+/* 커피 메뉴 */
+#orderCoffee {
+    width: 1400px;
+    height: 1200px;
+    border: 5px solid #333;
+    box-shadow: 3px 3px 7px 1px grey;
+    background-color:#FEEBB6;
+    z-index: 9999;
+    margin-left: 5%;
+    margin-top: 3%;
+    display: none;
+    position: fixed;
+    border-radius : 30px;
+    text-decoration: none;
+}
+
+#orderCoffee #orderTitle {
+  position : absolute;
+  left :25%;
+  top : 2%;
+  font-size : 65pt;
+  font-weight : 700;
+  width: 50%;
+  text-align: center;
+}
+
+#orderCoffee #selectImg {
+
+    position : absolute;
+    left : 2%;
+    width : 30%;
+    height : 40%;
+    top : 20%;
+ }
+
+#orderCoffee .select {
+  border : 5px black solid;
+  background-color: skyblue;
+  border-radius: 20px;  
+  width : 300px;
+  height : 100px;
+  text-align: center;
+ }
+
+#orderCoffee #selectName {
+
+    font-size : 40pt;
+    position : absolute;
+    top : 20%;
+    left : 35%;
+    font-weight : 700;
+ }
+
+#orderCoffee #selectedName {
+
+  font-size : 40pt;
+  position : absolute;
+  top : 20%;
+  left : 58%;
+  font-weight : 700;
+}
+
+
+#orderCoffee #selectPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+#orderCoffee #selectedPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 58%;
+  font-weight : 700;
+ }
+
+#orderCoffee #selectTemp {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+#orderCoffee #selectHot {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+  background-color: red;
+ }
+
+#orderCoffee #selectIce {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 74%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ }
+
+#orderCoffee #selectSize {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 35%;
+  font-weight : 700;
+ } 
+
+#orderCoffee #selectSmall {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+  background-color: red;
+ } 
+
+#orderCoffee #selectLarge {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 74%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ } 
+
 
 #close_button {
     float: right;
     margin-top: -3px;
-    border : 5px solid black;
-    background-color: brown;
-    font-size : 60px;
     text-align : center;
     width : 120px;
     height : 120px;
     border-radius: 30px;
-}
+  }
 
-#orderMenu .orderBtn {
+#orderCoffee .orderBtn {
   position : absolute;
   border : 5px black solid;
   width : 300px;
@@ -400,6 +536,379 @@ header #adminBtn button {
   background-color: gold;
 }
 
+#orderCoffee .number {
+  font-size : 50pt;
+  position : absolute;
+  top : 61%;
+  left : 55%;
+  font-weight : 700;
+  width : 300px;
+  height : 200px;
+  text-align : center;
+}
+
+#orderCoffee #selectNumber {
+  font-size : 40pt;
+  position : absolute;
+  top : 61%;
+  left : 35%;
+  font-weight : 700;
+}
+
+
+/* 음료 메뉴 */
+
+#orderBeverage {
+    width: 1400px;
+    height: 1200px;
+    border: 5px solid #333;
+    box-shadow: 3px 3px 7px 1px grey;
+    background-color:#FEEBB6;
+    z-index: 9999;
+    margin-left: 5%;
+    margin-top: 3%;
+    display: none;
+    position: fixed;
+    border-radius : 30px;
+    text-decoration: none;
+}
+
+#orderBeverage #orderTitle {
+  position : absolute;
+  left :25%;
+  top : 2%;
+  font-size : 65pt;
+  font-weight : 700;
+  width: 50%;
+  text-align: center;
+}
+
+#orderBeverage #selectImg {
+
+    position : absolute;
+    left : 2%;
+    width : 30%;
+    height : 40%;
+    top : 20%;
+ }
+
+#orderBeverage .select {
+  border : 5px black solid;
+  background-color: skyblue;
+  border-radius: 20px;  
+  width : 300px;
+  height : 100px;
+  text-align: center;
+ }
+
+#orderBeverage #selectName {
+
+    font-size : 40pt;
+    position : absolute;
+    top : 20%;
+    left : 35%;
+    font-weight : 700;
+ }
+
+#orderBeverage #selectedName {
+
+  font-size : 40pt;
+  position : absolute;
+  top : 20%;
+  left : 58%;
+  font-weight : 700;
+}
+
+
+#orderBeverage #selectPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+#orderBeverage #selectedPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 58%;
+  font-weight : 700;
+ }
+
+#orderBeverage #selectTemp {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+
+#orderBeverage #selectIce {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 400px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ }
+
+#orderBeverage #selectSize {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 35%;
+  font-weight : 700;
+ } 
+
+#orderBeverage #selectSmall {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+  background-color: red;
+ } 
+
+#orderBeverage #selectLarge {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 74%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ } 
+
+#orderBeverage .orderBtn {
+  position : absolute;
+  border : 5px black solid;
+  width : 300px;
+  height : 150px;
+  text-align : center;
+  top : 80%;
+  left : 39%;
+  font-size : 50pt;
+  font-weight : 700;
+  border-radius: 30px;
+  background-color: gold;
+}
+
+#orderBeverage .number {
+  font-size : 50pt;
+  position : absolute;
+  top : 61%;
+  left : 55%;
+  font-weight : 700;
+  width : 300px;
+  height : 200px;
+  text-align : center;
+}
+
+#orderBeverage #selectNumber {
+  font-size : 40pt;
+  position : absolute;
+  top : 61%;
+  left : 35%;
+  font-weight : 700;
+}
+
+/* 디저트 메뉴 */
+
+#orderDessert {
+    width: 1400px;
+    height: 1200px;
+    border: 5px solid #333;
+    box-shadow: 3px 3px 7px 1px grey;
+    background-color:#FEEBB6;
+    z-index: 9999;
+    margin-left: 5%;
+    margin-top: 3%;
+    display: none;
+    position: fixed;
+    border-radius : 30px;
+    text-decoration: none;
+}
+
+#orderDessert #orderTitle {
+  position : absolute;
+  left :25%;
+  top : 2%;
+  font-size : 65pt;
+  font-weight : 700;
+  width: 50%;
+  text-align: center;
+}
+
+#orderDessert #selectImg {
+
+    position : absolute;
+    left : 2%;
+    width : 30%;
+    height : 40%;
+    top : 20%;
+ }
+
+#orderDessert .select {
+  border : 5px black solid;
+  background-color: skyblue;
+  border-radius: 20px;  
+  width : 300px;
+  height : 100px;
+  text-align: center;
+ }
+
+#orderDessert #selectName {
+
+    font-size : 40pt;
+    position : absolute;
+    top : 20%;
+    left : 35%;
+    font-weight : 700;
+ }
+
+#orderDessert #selectedName {
+
+  font-size : 40pt;
+  position : absolute;
+  top : 20%;
+  left : 58%;
+  font-weight : 700;
+}
+
+
+#orderDessert #selectPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+#orderDessert #selectedPrice {
+  font-size : 40pt;
+  position : absolute;
+  top : 30%;
+  left : 58%;
+  font-weight : 700;
+ }
+
+#orderDessert #selectTemp {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 35%;
+  font-weight : 700;
+ }
+
+#orderDessert #selectHot {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+  background-color: red;
+ }
+
+#orderDessert #selectIce {
+  font-size : 40pt;
+  position : absolute;
+  top : 40%;
+  left : 74%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ }
+
+#orderDessert #selectSize {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 35%;
+  font-weight : 700;
+ } 
+
+#orderDessert #selectSmall {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 58%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+  background-color: red;
+ } 
+
+#orderDessert #selectLarge {
+  font-size : 40pt;
+  position : absolute;
+  top : 50%;
+  left : 74%;
+  font-weight : 700;
+  border : 5px black solid;
+  width : 200px;
+  height : 100px;
+  text-align : center;
+  border-radius: 20px;
+ } 
+
+#orderDessert .orderBtn {
+  position : absolute;
+  border : 5px black solid;
+  width : 300px;
+  height : 150px;
+  text-align : center;
+  top : 80%;
+  left : 39%;
+  font-size : 50pt;
+  font-weight : 700;
+  border-radius: 30px;
+  background-color: gold;
+}
+
+#orderDessert .number {
+  font-size : 50pt;
+  position : absolute;
+  top : 61%;
+  left : 55%;
+  font-weight : 700;
+  width : 300px;
+  height : 200px;
+  text-align : center;
+}
+
+#orderDessert #selectNumber {
+  font-size : 40pt;
+  position : absolute;
+  top : 61%;
+  left : 35%;
+  font-weight : 700;
+}
+
 
 #modal {
   position:fixed;
@@ -410,4 +919,25 @@ header #adminBtn button {
   left: 0;
   z-index: 99;
   display: none;
+}
+
+.orderPage .payment {
+  position: absolute;
+  top : 0px;
+  width : 660px;
+  height : 1400px;
+  left : 1505px;
+  border : 5px solid black;
+  background-color : yellow;
+}
+
+
+#orderList {
+  text-align : center;
+  font-size : 60pt;
+  font-weight : 700;
+}
+
+#orderList .list{
+  font-size : 30pt;  
 }
