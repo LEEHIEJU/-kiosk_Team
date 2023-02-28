@@ -78,17 +78,17 @@
 
   <div id= "modal"> </div>
   <div id = "orderCoffee">
-          <img src="" id="selectImg">
+          <img src="" class="selectImg">
           <span id="orderTitle"> 주문 하기</span>
-          <box-icon id="close_button" name='window-close'></box-icon>
-          <span id="selectName" class="select"> 메뉴&nbsp;이름 </span> <span id="selectedName"> 아메리카노 </span> </br>
-          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 3000 </span> </br>
-          <span id="selectTemp" class="select"> 핫/아이스 </span> <div id="selectHot" onclick="choiceHot()"> HOT </div> <div id="selectIce" onclick="choiceIce()"> ICE </div>
-          <span id="selectSize" class="select"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div id="selectSmall" onclick="choiceSmall()"> SMALL </div> <div id="selectLarge" onclick="choiceLarge()"> LARGE </div>
-		  <span id="selectNumber" class="select"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
+          <box-icon name='window-close' class="closeCoffee"></box-icon>
+          <span class="selectName" > 메뉴&nbsp;이름 </span> <span class="selectedName"> 아메리카노 </span> </br>
+          <span class="selectPrice"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span class="selectedPrice"> 3000 </span> </br>
+          <span class="selectTemp"> 핫/아이스 </span> <div class="selectHot" onclick="choiceHot()"> HOT </div> <div class="selectIce" onclick="choiceIce()"> ICE </div>
+          <span class="selectSize"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div class="selectSmall" onclick="choiceSmall()"> SMALL </div> <div class="selectLarge" onclick="choiceLarge()"> LARGE </div>
+		  <span class="selectNumber"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
     	  <div class="number">
             <box-icon id="minusBtn" type="solid" name='minus-circle' size="lg" color="black" onclick="minusNumber()"></box-icon>
-            <span id="orderNumber"> 1 </span> 
+            <span class="orderNumber"> 1 </span> 
             <box-icon id="plusBtn" type="solid" name='plus-circle' size="lg" color="black" onclick="plusNumber()"> </box-icon>
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
@@ -97,17 +97,17 @@
   </div>
   
   <div id = "orderBeverage">
-          <img src="" id="selectImg">
+          <img src="" class="selectImg">
           <span id="orderTitle"> 주문 하기</span>
-          <box-icon id="close_button" name='window-close'></box-icon>
-          <span id="selectName" class="select"> 메뉴&nbsp;이름 </span> <span id="selectedName"> 아메리카노 </span> </br>
-          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 3000 </span> </br>
-          <span id="selectTemp" class="select"> 핫/아이스 </span>  <div id="selectIce" onclick="choiceIce()"> ONLY ICE </div>
-          <span id="selectSize" class="select"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div id="selectSmall" onclick="choiceSmall()"> SMALL </div> <div id="selectLarge" onclick="choiceLarge()"> LARGE </div>
-		  <span id="selectNumber" class="select"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
+     	  <box-icon name='window-close' class="closeBeverage"></box-icon>
+          <span class="selectName" > 메뉴&nbsp;이름 </span> <span class="selectedName"> 아메리카노 </span> </br>
+          <span class="selectPrice"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span class="selectedPrice"> 3000 </span> </br>
+          <span class="selectTemp"> 핫/아이스 </span> <div class="selectIce" onclick="choiceIce()"> ONLY ICE </div>
+          <span class="selectSize"> 사&nbsp;이&nbsp;즈&nbsp;</span> <div class="selectSmall" onclick="choiceSmall()"> SMALL </div> <div class="selectLarge" onclick="choiceLarge()"> LARGE </div>
+		  <span class="selectNumber"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
     	  <div class="number">
             <box-icon id="minusBtn" type="solid" name='minus-circle' size="lg" color="black" onclick="minusNumber()"></box-icon>
-            <span id="orderNumber"> 1 </span> 
+            <span class="orderNumber"> 1 </span> 
             <box-icon id="plusBtn" type="solid" name='plus-circle' size="lg" color="black" onclick="plusNumber()"> </box-icon>
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
@@ -115,22 +115,23 @@
           <input type="button" value="주문하기" class="orderBtn">
   </div>
   
-    <div id = "orderDessert">
-          <img src="" id="selectImg">
+  <div id = "orderDessert">
+          <img src="" class="selectImg">
           <span id="orderTitle"> 주문 하기</span>
-          <box-icon id="close_button" name='window-close'></box-icon>
-          <span id="selectName" class="select"> 메뉴&nbsp;이름 </span> <span id="selectedName"> 아메리카노 </span> </br>
-          <span id="selectPrice" class="select"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span id="selectedPrice"> 3000 </span> </br>
-		  <span id="selectNumber" class="select"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
+     	  <box-icon name='window-close' class="closeDessert"></box-icon>
+          <span class="selectName" > 메뉴&nbsp;이름 </span> <span class="selectedName"> 아메리카노 </span> </br>
+          <span class="selectPrice"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span class="selectedPrice"> 3000 </span> </br>
+          <span class="selectNumber"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
     	  <div class="number">
             <box-icon id="minusBtn" type="solid" name='minus-circle' size="lg" color="black" onclick="minusNumber()"></box-icon>
-            <span id="orderNumber"> 1 </span> 
+            <span class="orderNumber"> 1 </span> 
             <box-icon id="plusBtn" type="solid" name='plus-circle' size="lg" color="black" onclick="plusNumber()"> </box-icon>
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
   		  <span id="sizeBox"></span>	
           <input type="button" value="주문하기" class="orderBtn">
   </div>
+  
   
 
 </body>
@@ -178,7 +179,7 @@ function moveCoffee() {
 
 function resetData() {
 	orderNum = 1;
-	$("#orderNumber").text(orderNum);
+	$(".orderNumber").text(orderNum);
 	price1 = 0;
 	price2 = 0;	
 }	  
@@ -188,10 +189,10 @@ var orderNum = 1;
 $(".coffee").click(function() {
 	
   resetData();
-  $("#selectIce").css("background-color","#FEEBB6");  
-  $("#selectHot").css("background-color","red");
-  $("#selectSmall").css("background-color","red");  
-  $("#selectLarge").css("background-color","#FEEBB6");
+  $(".selectIce").css("background-color","#FEEBB6");  
+  $(".selectHot").css("background-color","red");
+  $(".selectSmall").css("background-color","red");  
+  $(".selectLarge").css("background-color","#FEEBB6");
 
 
   var thisNo = $(this).children(0).attr("alt"); // 하위에 있는 첫번째 자식(img) alt속성값읽기
@@ -199,10 +200,10 @@ $(".coffee").click(function() {
   var thisPrice = $(this).children(".product-price").text();
   var src = "./image/"+thisName+".png";
 
-  $("#selectedName").text(thisName);
-  $("#selectedPrice").text(thisPrice);
-  $("#selectedPrice").val(thisPrice); 
-  $("#selectImg").attr("src",src);    
+  $(".selectedName").text(thisName);
+  $(".selectedPrice").text(thisPrice);
+  $(".selectedPrice").val(thisPrice); 
+  $(".selectImg").attr("src",src);    
 
 
   $("#orderCoffee").fadeIn();
@@ -230,10 +231,9 @@ $(".coffee").click(function() {
 $(".beverage").click(function() {
 
 	  resetData();
-	  $("#selectIce").css("background-color","#FEEBB6");  
-	  $("#selectHot").css("background-color","red");
-	  $("#selectSmall").css("background-color","red");  
-	  $("#selectLarge").css("background-color","#FEEBB6");
+	  $(".selectIce").css("background-color","red");  
+	  $(".selectSmall").css("background-color","red");  
+	  $(".selectLarge").css("background-color","#FEEBB6");
 
 
 	  var thisNo = $(this).children(0).attr("alt");
@@ -241,15 +241,14 @@ $(".beverage").click(function() {
 	  var thisPrice = $(this).children(".product-price").text();
 	  var src = "./image/"+thisName+".png";
 
-	  $("#selectedName").text(thisName);
-	  $("#selectedPrice").text(thisPrice);
-	  $("#selectedPrice").val(thisPrice); 
-	  $("#selectImg").attr("src",src);    
+	  $(".selectedName").text(thisName);
+	  $(".selectedPrice").text(thisPrice);
+	  $(".selectedPrice").val(thisPrice); 
+	  $(".selectImg").attr("src",src);    
 
 
 	  $("#orderBeverage").fadeIn();
 	  $("#modal").fadeIn();
-	  alert(JSON.stringify(thisNo));
 	  $.ajax({
 	         type: "get",
 	         url : "http://localhost/menuSize",
@@ -272,50 +271,37 @@ $(".beverage").click(function() {
 $(".dessert").click(function() {
 	
 	  resetData();
-	  $("#selectIce").css("background-color","#FEEBB6");  
-	  $("#selectHot").css("background-color","red");
-	  $("#selectSmall").css("background-color","red");  
-	  $("#selectLarge").css("background-color","#FEEBB6");
-
 
 	  var thisNo = $(this).children(0).attr("alt");
 	  var thisName = $(this).children(".product-name").text();
 	  var thisPrice = $(this).children(".product-price").text();
 	  var src = "./image/"+thisName+".jpg";
 
-	  $("#selectedName").text(thisName);
-	  $("#selectedPrice").text(thisPrice);
-	  $("#selectedPrice").val(thisPrice); 
-	  $("#selectImg").attr("src",src);    
+	  $(".selectedName").text(thisName);
+	  $(".selectedPrice").text(thisPrice);
+	  $(".selectedPrice").val(thisPrice); 
+	  $(".selectImg").attr("src",src);    
 
 
 	  $("#orderDessert").fadeIn();
 	  $("#modal").fadeIn();
 
-	  $.ajax({
-	         type: "get",
-	         url : "http://localhost/menuSize",
-	         headers: {'Content-Type': 'application/json'},
-	         data : {"foodnum":thisNo}, // foodnum이름으로 서버에 전송
-	         success : function (data){
-	            console.log(data);
-	            // id값이 sizeBox에 넣어줘야 한다.
-	            $("#sizeBox").empty();
-	            for(i in data){
-	            	$("#sizeBox").append("<input type='hidden' id='" + data[i].drinksizetype + "' value='" + data[i].plusprice + "'>");
-	            }
-	         },
-	         error : function(e){
-	         }
-	 })
-
 	});
 
-$("#close_button").click(function(){
-    $("#orderCoffee").fadeOut();
-    $("#orderBeverage").fadeOut();
-    $("#orderDessert").fadeOut();
+$(".closeCoffee").click(function(){
+    $("#orderCoffee").fadeOut();        
+    $("#modal").fadeOut();
+    
+});
 
+$(".closeBeverage").click(function(){
+    $("#orderBeverage").fadeOut();
+    $("#modal").fadeOut();
+    
+});
+
+$(".closeDessert").click(function(){
+    $("#orderDessert").fadeOut();
     $("#modal").fadeOut();
     
 });
@@ -325,8 +311,8 @@ var price2 = 0;
 sumprice = 0;
 
 function setPrice() {
-  sumPrice = (parseInt($("#selectedPrice").val()) + price1*1 + price2*1)*orderNum;
-  $("#selectedPrice").text(sumPrice +"원");
+  sumPrice = (parseInt($(".selectedPrice").val()) + price1*1 + price2*1)*orderNum;
+  $(".selectedPrice").text(sumPrice +"원");
 }
 
 function choiceHot(){
@@ -340,8 +326,8 @@ function choiceHot(){
   } else {
 	  price2 = price2;
   }
-  $("#selectIce").css("background-color","#FEEBB6");  
-  $("#selectHot").css("background-color","red");
+  $(".selectIce").css("background-color","#FEEBB6");  
+  $(".selectHot").css("background-color","red");
   price1 = parseInt($("#HOT").val());
   setPrice();
 }
@@ -357,8 +343,8 @@ function choiceIce(){
 	  } else {
 		  price2 = price2;
 	  }	
-  $("#selectIce").css("background-color","red");  
-  $("#selectHot").css("background-color","#FEEBB6");
+  $(".selectIce").css("background-color","red");  
+  $(".selectHot").css("background-color","#FEEBB6");
   price1 = parseInt($("#ICE").val());
   setPrice();
 }
@@ -374,8 +360,8 @@ function choiceSmall(){
 	  } else {
 		  price2 = price2;
 	  }
-  $("#selectSmall").css("background-color","red");  
-  $("#selectLarge").css("background-color","#FEEBB6");
+  $(".selectSmall").css("background-color","red");  
+  $(".selectLarge").css("background-color","#FEEBB6");
   price2 = parseInt($("#SMALL").val());
   setPrice();
 }
@@ -391,8 +377,8 @@ function choiceLarge(){
 	  } else {
 		  price2 = price2;
 	  }
-  $("#selectSmall").css("background-color","#FEEBB6");  
-  $("#selectLarge").css("background-color","red");
+  $(".selectSmall").css("background-color","#FEEBB6");  
+  $(".selectLarge").css("background-color","red");
   price2 = parseInt($("#LARGE").val());
   setPrice();
 
@@ -404,7 +390,7 @@ function plusNumber() {
   else if(orderNum == 9) {
     orderNum = 9;
   }    
-  $("#orderNumber").text(orderNum);
+  $(".orderNumber").text(orderNum);
   setPrice();
 }
 
@@ -415,7 +401,7 @@ function minusNumber() {
     orderNum = 1;
   }
 
-  $("#orderNumber").text(orderNum);
+  $(".orderNumber").text(orderNum);
   setPrice();
 
 }
