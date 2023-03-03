@@ -17,12 +17,8 @@ public class AdminServiceImpl implements AdminService{
 
 	// 관리자 로그인
 	@Override
-	public AdminVO pw(String adminpw) {
-		try {
-			return adminDAO.pw(adminpw);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public String pw(AdminVO adminvo) {
+		
 		return null;
 	}
 	

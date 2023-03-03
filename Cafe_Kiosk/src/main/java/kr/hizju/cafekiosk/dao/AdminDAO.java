@@ -11,7 +11,7 @@ import kr.hizju.cafekiosk.vo.MenuVO;
 public interface AdminDAO {
 	
 	// 관리자 로그인
-	AdminVO pw(String adminpw) throws SQLException;
+	String pw(AdminVO adminvo) throws SQLException;
 	
 	// 메뉴 저장하기
 	void insert(MenuVO menuVO) throws SQLException;

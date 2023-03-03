@@ -3,15 +3,14 @@ package kr.hizju.cafekiosk.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpSession;
@@ -20,21 +19,20 @@ import kr.hizju.cafekiosk.vo.AdminVO;
 import kr.hizju.cafekiosk.vo.MenuVO;
 import lombok.extern.slf4j.Slf4j;
 
-@Controller
-@RequestMapping("admin/*")
+@RestController
 @Slf4j
 public class AdminController {
-
+	
 	@Autowired
 	private AdminService adminService;
 
 	// 관리자 로그인페이지
 	@GetMapping("/admin")
-	public ModelAndView pw(HttpSession session, AdminVO adminVO, ModelAndView mav) {
-		String name = adminService.pw(adminVO);
+	public ModelAndView pw(HttpSession session, AdminVO adminvo, ModelAndView mav) {
+		String name = adminService.pw(adminvo);
 		// 로그인 성공
 		if(name != null) {
-			session.setAttribute("1234", adminVO.getAdminpw());
+			session.setAttribute("admin", adminvo);
 			mav.setViewName("/admin/adminhome"); // 관리자 페이지 이동
 			mav.addObject("msg", "success");
 		// 로그인 실패

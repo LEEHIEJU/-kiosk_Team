@@ -6,7 +6,7 @@ import kr.hizju.cafekiosk.vo.MenuVO;
 public interface AdminService {
 	
 	// 관리자 로그인
-	String pw(AdminVO adminVO);
+	String pw(AdminVO adminvo);
 		
 	// 메뉴 저장하기
 	boolean insert(MenuVO menuVO);
