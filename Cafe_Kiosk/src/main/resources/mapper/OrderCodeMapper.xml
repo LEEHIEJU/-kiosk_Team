@@ -11,7 +11,7 @@
 	
 	<!-- 주문화면 -->
 	<select id="ordercodepage" parameterType="string" resultType="OrderCodeVO">
-		select * from ordercode
+		select orderwhere from ordercode
 		where orderwhere = #{orderwhere}
 	</select>
 	
@@ -21,13 +21,12 @@
 	from ordernum
 	</select>
 	
-	<!-- 주문정보 -->
+	<!-- 주문정보(매장/포장, 날짜) -->
 	<insert id="orderinfo" parameterType="OrderCodeVO">
-	insert into ordercode (orderid, orderwhere, orderdate, coupon)
+	insert into ordercode (orderid, orderwhere, orderdate)
 		values (#{orderid},
 		 		#{orderwhere}, 
-                #{orderdate},
-                #{coupon})
+		 		sysdate)
 	</insert>
 	
 	<!-- 주문 상세정보 -->
@@ -37,8 +36,13 @@
 		 		#{foodstock}, 
                 #{ordercount},
                 #{ordernum},
-                #{foodnum})
+                #{foodnum},
+                #{coupon})
 	</insert>
+	
+	<!-- 년도별 주문 수 추출 쿼리문 -->
+	<!-- 월별 주문 수 추출 쿼리문 -->
+	<!-- 일별 주문 수 추출 쿼리문 -->
 
 	
 </mapper>

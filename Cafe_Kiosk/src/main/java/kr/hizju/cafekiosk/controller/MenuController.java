@@ -55,7 +55,7 @@ public class MenuController {
 		List<MenuVO> menucate = menuService.menucategory(foodtype);
 		log.info("받은값 : {}", foodtype);
 		model.addAttribute("menulist", menucate);
-		return "Menulist";
+		return "Menu";
 	}
 	
 	
@@ -63,23 +63,23 @@ public class MenuController {
 	public String insert(@ModelAttribute MenuVO menuVO) {
 		log.info("저장값 : {}", menuVO);
 		menuService.insert(menuVO);
-		return "main";
+		return "Admin";
 	}
 
 	@PutMapping("/updatemenu") // put : 수정
-	public boolean update(@ModelAttribute MenuVO menuVO) {
+	public String update(@ModelAttribute MenuVO menuVO) {
 		log.info("수정값 : {}", menuVO);
 		menuService.update(menuVO);
 		
-		return true;
+		return "Admin";
 	}
 
 	@DeleteMapping("/deletemenu") // delete : 삭제
-	public boolean delete(@RequestParam String foodnum) {
+	public String delete(@RequestParam String foodnum) {
 		log.info("삭제값 : {}", foodnum);
 		menuService.delete(foodnum);
 		
-		return true;
+		return "Admin";
 	}
 
 }
