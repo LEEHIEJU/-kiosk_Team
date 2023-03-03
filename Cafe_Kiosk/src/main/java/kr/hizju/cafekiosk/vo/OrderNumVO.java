@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class OrderNumVO {
 	private int idx; // 영수증 번호(pk)
 	private int foodstock; // 메뉴 개수
-	private int ordercount; // 총 결제 금액
+	private int totalprice; // 총 결제 금액
 	private int ordernum; // 주문번호(fk)
 	private int foodnum; // 메뉴 id(fk)
 	
@@ -22,7 +22,7 @@ public class OrderNumVO {
 	private Date orderdate; // 주문 날짜
 	private String coupon; // 쿠폰 사용여부
 	
-	// 메뉴
+	// 메뉴(db로부터 꺼내올 값)
 	private String foodname;
 	private String foodtype;
 	private int foodprice;

@@ -20,20 +20,18 @@
 	
 	<!-- 주문하기(메뉴) -->
 	<insert id="orderdetail" parameterType="OrderNumVO">
-	insert into ordernum (idx, foodstock, ordercount, ordernum, foodnum, coupon, orderstate)
+	insert into ordernum (idx, foodstock, totalprice, coupon, orderstate)
 		values (#{idx},
 		 		#{foodstock}, 
-                #{ordercount},
-                #{ordernum},
-                #{foodnum},
+                #{totalprice},
                 #{coupon}, 
                 #{orderstate})
 	</insert>
 	
 	<!-- 주문수정(메뉴) -->
 	<update id="orderupdate" parameterType="OrderNumVO">
-	update ordernum set foodstock=#{foodstock}, ordercount=#{ordercount}, ordernum=#{ordernum}, 
-					foodnum=#{foodnum}, coupon=#{coupon}, orderstate=#{orderstate}
+	update ordernum set foodstock=#{foodstock}, totalprice=#{totalprice}, 
+						coupon=#{coupon}, orderstate=#{orderstate}
 			where ordernum=#{ordernum}
 	</update>
 	
