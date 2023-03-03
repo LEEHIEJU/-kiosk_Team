@@ -32,7 +32,7 @@ public class OrdercodeController {
 	public String orderpage(Model model, OrderCodeVO orderCodeVO) {
 		ordercodeService.orderpage(orderCodeVO);
 		model.addAttribute("orderpage", orderCodeVO);
-		return "OrderPage";
+		return "Menu";
 
 	}
 

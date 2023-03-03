@@ -23,13 +23,4 @@ public interface MenuDAO {
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype) throws SQLException;
 	
-	// 저장하기
-	void insert(MenuVO menuVO) throws SQLException;
-
-	// 수정하기
-	void update(MenuVO menuVO) throws SQLException;
-
-	// 삭제하기
-	void delete(String foodnum) throws SQLException;
-
 }

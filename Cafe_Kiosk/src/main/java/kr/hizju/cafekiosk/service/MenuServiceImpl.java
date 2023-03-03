@@ -63,41 +63,5 @@ public class MenuServiceImpl implements MenuService {
 		}
 		return menucate;
 	}
-	
-	
 
-	@Override
-	public boolean insert(MenuVO menuVO) {
-		try {
-			menuDAO.insert(menuVO);
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		return true;
-	}
-
-	@Override
-	public boolean update(MenuVO menuVO) {
-		try {
-			menuDAO.update(menuVO);
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-		}
-		return true;
-	}
-
-	@Override
-	public boolean delete(String foodnum) {
-		try {
-			menuDAO.delete(foodnum);
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		return true;
-	}
-
-	
 }

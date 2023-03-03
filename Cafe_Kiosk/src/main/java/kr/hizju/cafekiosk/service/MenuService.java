@@ -18,14 +18,6 @@ public interface MenuService {
 	
 	// 메뉴 카테고리
 	List<MenuVO> menucategory(String foodtype);
-	
-	// 저장하기
-	boolean insert(MenuVO menuVO);
 
-	// 수정하기
-	boolean update(MenuVO menuVO);
-
-	// 삭제하기
-	boolean delete(String foodnum);
 
 }

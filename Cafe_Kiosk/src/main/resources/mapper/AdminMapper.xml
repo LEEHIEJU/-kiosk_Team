@@ -15,4 +15,28 @@
 			adminpw = #{adminpw}
 	</select>
 	
+	<!-- 메뉴 저장 -->
+	<insert id="insert" parameterType="MenuVO">
+	insert into MENU (foodnum, foodname, foodtype, foodprice, foodsoldout, foodlev, image)
+		values (#{foodnum},
+		 		#{foodname}, 
+                #{foodtype},
+                #{foodprice}, 
+                #{foodsoldout},
+                #{foodlev},
+                #{image})
+	</insert>
+	
+	<!-- 메뉴 수정 -->
+	<update id="update" parameterType="MenuVO">
+	update MENU set foodname=#{foodname}, foodtype=#{foodtype}, foodprice=#{foodprice}, 
+					foodsoldout=#{foodsoldout}, foodlev=#{foodlev}, image=#{image}
+			where foodnum=#{foodnum}
+	</update>
+	
+	<!-- 메뉴 삭제 -->
+	<delete id="delete" parameterType="string">
+	delete from MENU where foodnum= #{foodnum}
+	</delete>
+	
 </mapper>
