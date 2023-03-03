@@ -16,18 +16,17 @@ public class OrdercodeServiceImpl implements OrdercodeService {
 	@Autowired
 	private OrdercodeDAO ordercodeDAO;
 	
+	// 주문화면(매장/포장)
 	@Override
-	public List<OrderCodeVO> orderpage(String orderwhere) {
-		List<OrderCodeVO> orderList = null;
+	public void orderpage(OrderCodeVO orderCodeVO) {
 		try {
-			orderList = ordercodeDAO.orderpage(orderwhere);
+			ordercodeDAO.orderpage(orderCodeVO);
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
-		return orderList;
 	}
 	
+	// 주문내역
 	@Override
 	public List<OrderNumVO> orderhistory(String ordernum) {
 		List<OrderNumVO> orderdetaillist = null;
@@ -40,17 +39,7 @@ public class OrdercodeServiceImpl implements OrdercodeService {
 		return orderdetaillist;
 	}
 
-	@Override
-	public void orderinfo(OrderCodeVO orderCodeVO) {
-		try {
-			ordercodeDAO.orderinfo(orderCodeVO);
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		
-	}
-
+	// 주문하기(메뉴)
 	@Override
 	public void orderdetail(OrderNumVO orderNumVO) {
 		try {

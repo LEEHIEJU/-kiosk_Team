@@ -10,14 +10,11 @@ import kr.hizju.cafekiosk.vo.OrderNumVO;
 @Mapper
 public interface OrdercodeDAO {
 	
-	// 주문화면
-	List<OrderCodeVO> orderpage(String orderwhere) throws SQLException;
+	// 주문화면(매장/포장)
+	void orderpage(OrderCodeVO orderCodeVO) throws SQLException;
 	
 	// 주문목록
 	List<OrderNumVO> orderhistory(String ordernum) throws SQLException;
-	
-	// 주문하기(매장/포장)
-	void orderinfo(OrderCodeVO orderCodeVO) throws SQLException;
 	
 	// 주문하기(메뉴)
 	void orderdetail(OrderNumVO orderNumVO) throws SQLException;

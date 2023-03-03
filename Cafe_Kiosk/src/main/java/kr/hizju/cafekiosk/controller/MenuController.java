@@ -58,14 +58,14 @@ public class MenuController {
 		return "Menu";
 	}
 	
-	
+	@ResponseBody
 	@PostMapping("/insertmenu") // post : 입력
 	public String insert(@ModelAttribute MenuVO menuVO) {
 		log.info("저장값 : {}", menuVO);
 		menuService.insert(menuVO);
 		return "Admin";
 	}
-
+	@ResponseBody
 	@PutMapping("/updatemenu") // put : 수정
 	public String update(@ModelAttribute MenuVO menuVO) {
 		log.info("수정값 : {}", menuVO);
@@ -73,7 +73,7 @@ public class MenuController {
 		
 		return "Admin";
 	}
-
+	@ResponseBody
 	@DeleteMapping("/deletemenu") // delete : 삭제
 	public String delete(@RequestParam String foodnum) {
 		log.info("삭제값 : {}", foodnum);

@@ -7,14 +7,11 @@ import kr.hizju.cafekiosk.vo.OrderNumVO;
 
 public interface OrdercodeService {
 
-	// 주문화면
-	List<OrderCodeVO> orderpage(String orderwhere);
+	// 주문화면(매장/포장)
+	void orderpage(OrderCodeVO orderCodeVO);
 
 	// 주문내역
 	List<OrderNumVO> orderhistory(String ordernum);
-
-	// 주문하기(매장/포장)
-	void orderinfo(OrderCodeVO orderCodeVO);
 
 	// 주문하기(메뉴)
 	void orderdetail(OrderNumVO orderNumVO);
