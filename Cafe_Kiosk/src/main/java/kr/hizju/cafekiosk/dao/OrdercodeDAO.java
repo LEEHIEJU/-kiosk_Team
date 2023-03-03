@@ -4,26 +4,30 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-
 import kr.hizju.cafekiosk.vo.OrderCodeVO;
 import kr.hizju.cafekiosk.vo.OrderNumVO;
 
 @Mapper
 public interface OrdercodeDAO {
 	
-	String today() throws SQLException;
-	
 	// 주문화면
-	List<OrderCodeVO> ordercodepage(String orderwhere) throws SQLException;
+	List<OrderCodeVO> orderpage(String orderwhere) throws SQLException;
 	
-	// 주문내역
-	List<OrderNumVO> orderpage(String ordernum) throws SQLException;
+	// 주문목록
+	List<OrderNumVO> orderhistory(String ordernum) throws SQLException;
 	
-	// 주문정보
+	// 주문하기(매장/포장)
 	void orderinfo(OrderCodeVO orderCodeVO) throws SQLException;
 	
-	// 주문 상세정보
+	// 주문하기(메뉴)
 	void orderdetail(OrderNumVO orderNumVO) throws SQLException;
+
+	// 주문수정
+	void orderupdate(OrderNumVO orderNumVO) throws SQLException;
+	
+	// 주문 삭제
+	void orderdelete(String ordernum) throws SQLException;
+	
 	
 
 }

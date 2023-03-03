@@ -17,34 +17,22 @@ public class OrdercodeServiceImpl implements OrdercodeService {
 	private OrdercodeDAO ordercodeDAO;
 	
 	@Override
-	public List<OrderCodeVO> ordercodepage(String orderwhere) {
+	public List<OrderCodeVO> orderpage(String orderwhere) {
 		List<OrderCodeVO> orderList = null;
 		try {
-			orderList = ordercodeDAO.ordercodepage(orderwhere);
+			orderList = ordercodeDAO.orderpage(orderwhere);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
 		return orderList;
 	}
-
+	
 	@Override
-	public String today() {
-		String result = null;
-		try {
-			result = ordercodeDAO.today();
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	@Override
-	public List<OrderNumVO> orderpage(String ordernum) {
+	public List<OrderNumVO> orderhistory(String ordernum) {
 		List<OrderNumVO> orderdetaillist = null;
 		try {
-			orderdetaillist = ordercodeDAO.orderpage(ordernum);
+			orderdetaillist = ordercodeDAO.orderhistory(ordernum);
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -69,6 +57,28 @@ public class OrdercodeServiceImpl implements OrdercodeService {
 			ordercodeDAO.orderdetail(orderNumVO);
 		} catch (SQLException e) {
 		
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void orderupdate(OrderNumVO orderNumVO) {
+		try {
+			ordercodeDAO.orderupdate(orderNumVO);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void orderdelete(String ordernum) {
+		try {
+			ordercodeDAO.orderdelete(ordernum);
+		} catch (SQLException e) {
+			
 			e.printStackTrace();
 		}
 		

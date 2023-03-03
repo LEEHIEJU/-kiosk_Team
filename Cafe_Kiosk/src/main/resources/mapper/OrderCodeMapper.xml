@@ -4,24 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.hizju.cafekiosk.dao.OrdercodeDAO">
 
-	<!-- 기본화면 -->
-	<select resultType="string" id="today">
-	select sysdate from ordercode 
-	</select>
-	
 	<!-- 주문화면 -->
-	<select id="ordercodepage" parameterType="string" resultType="OrderCodeVO">
-		select orderwhere from ordercode
+	<select resultType="string" id="today">
+	select * from ordercode
 		where orderwhere = #{orderwhere}
 	</select>
 	
-	<!-- 주문내역 -->
+	<!-- 주문목록 -->
 	<select id="orderpage" resultType="OrderNumVO">
 	select *
 	from ordernum
 	</select>
 	
-	<!-- 주문정보(매장/포장, 날짜) -->
+	<!-- 주문하기(매장/포장) -->
 	<insert id="orderinfo" parameterType="OrderCodeVO">
 	insert into ordercode (orderid, orderwhere, orderdate)
 		values (#{orderid},
@@ -29,19 +24,34 @@
 		 		sysdate)
 	</insert>
 	
-	<!-- 주문 상세정보 -->
+	<!-- 주문하기(메뉴) -->
 	<insert id="orderdetail" parameterType="OrderNumVO">
-	insert into ordernum (idx, foodstock, ordercount, ordernum, foodnum)
+	insert into ordernum (idx, foodstock, ordercount, ordernum, foodnum, coupon, orderstate)
 		values (#{idx},
 		 		#{foodstock}, 
                 #{ordercount},
                 #{ordernum},
                 #{foodnum},
-                #{coupon})
+                #{coupon}, 
+                #{orderstate})
 	</insert>
 	
+	<!-- 주문수정(메뉴) -->
+	<update id="orderupdate" parameterType="OrderNumVO">
+	update ordernum set foodstock=#{foodstock}, ordercount=#{ordercount}, ordernum=#{ordernum}, 
+					foodnum=#{foodnum}, coupon=#{coupon}, orderstate=#{orderstate}
+			where ordernum=#{ordernum}
+	</update>
+	
+	<!-- 주문삭제(메뉴) -->
+	<delete id="orderdelete" parameterType="string">
+	delete from ordernum where ordernum= #{ordernum}
+	</delete>
+	
 	<!-- 년도별 주문 수 추출 쿼리문 -->
+	
 	<!-- 월별 주문 수 추출 쿼리문 -->
+	
 	<!-- 일별 주문 수 추출 쿼리문 -->
 
 	

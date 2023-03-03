@@ -17,10 +17,15 @@ public class OrderNumVO {
 	private int ordernum; // 주문번호(fk)
 	private int foodnum; // 메뉴 id(fk)
 	
+	// 주문화면
 	private String orderwhere; // 매장 or 포장
 	private Date orderdate; // 주문 날짜
 	private String coupon; // 쿠폰 사용여부
 	
+	// 메뉴
+	private String foodname;
+	private String foodtype;
+	private int foodprice;
 	
 	
 }
