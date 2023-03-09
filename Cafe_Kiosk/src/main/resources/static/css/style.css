@@ -388,12 +388,14 @@ header #adminBtn button {
   border-radius: 20px;
  } 
 
-#orderCoffee .orderBtn {
+
+#orderCoffee .orderGO {
   position : absolute;
   border : 5px black solid;
   width : 300px;
   height : 150px;
   text-align : center;
+  line-height: 140px;
   top : 80%;
   left : 39%;
   font-size : 50pt;
@@ -597,12 +599,13 @@ header #adminBtn button {
   border-radius: 20px;
  } 
 
-#orderBeverage .orderBtn {
+#orderBeverage .orderGO {
   position : absolute;
   border : 5px black solid;
   width : 300px;
   height : 150px;
   text-align : center;
+  line-height: 140px;
   top : 80%;
   left : 39%;
   font-size : 50pt;
@@ -733,12 +736,13 @@ header #adminBtn button {
   
  }
 
-#orderDessert .orderBtn {
+#orderDessert .orderGO {
   position : absolute;
   border : 5px black solid;
   width : 300px;
   height : 150px;
   text-align : center;
+  line-height: 140px;
   top : 80%;
   left : 39%;
   font-size : 50pt;
@@ -801,16 +805,83 @@ header #adminBtn button {
   height : 1400px;
   left : 1505px;
   border : 5px solid black;
-  background-color : yellow;
 }
 
 
-#orderList {
-  text-align : center;
-  font-size : 60pt;
+.orderPage #orderList {
+  position : absolute;
+  top : 150px;
+  width : 650px;
+  height: 800px;
+  background-color: skyblue;
+}
+
+.payment #title{
+  position : absolute;
+  width : 650px;
+  height: 150px;
+  font-size : 40pt;  
   font-weight : 700;
+  border-bottom : 5px solid black;
+  background-color: blue;
+  text-align: center;
 }
 
-#orderList .list{
-  font-size : 30pt;  
+.payment #title #payName{
+  position : absolute;
+  width : 250px;
+  left : 20px;
+  line-height: 150px;
 }
+
+.payment #title #payPrice{
+  position : absolute;
+  width : 230px;
+  left : 270px;
+  line-height: 150px;
+}
+.payment #title #payNumber{
+  position : absolute;
+  width : 150px;
+  left : 500px;
+  line-height: 150px;
+}
+
+.payment .goods {
+  width : 650x;
+  height : 120px;  
+  left : 0px;
+  border : solid black 3px;
+  font-size : 30pt;
+  text-align: center;
+}
+
+.payment .goods #oName{ 
+  position : absolute;
+  width : 300px;
+  left : 0;
+  line-height : 120px;
+  font-size : 25pt;
+}
+
+.payment .goods #oPrice{ 
+  position : absolute;
+  width : 200px;
+  left : 300px;
+  line-height : 120px;
+}
+
+.payment .goods #oNumber{ 
+  position : absolute;
+  width : 100px;
+  left : 500px;
+  line-height: 120px;
+}
+
+.payment .goods .xImage{
+  position : absolute;
+  width : 50px;
+  height : 120px;
+  background-color: red;
+  left : 600px;
+} 

@@ -44,7 +44,7 @@
         <a href="javascript:void(0);" class="coffee" th:each="menu : ${menulist}" th:if="${menu.foodtype == 'COFFEE'}">
           <img th:src="|./image/${menu.foodname}.png|" class="menuImg" th:alt="${menu.foodnum}">
           <div class="product-name" th:text="${menu.foodname}" >아메리카노</div>
-          <div class="product-price" th:text="${menu.foodprice} + 원" >5,000 원</div>
+          <div class="product-price" th:text="${menu.foodprice} + 원" >5000 원</div>
         </a>  
     </div>
 
@@ -68,11 +68,16 @@
   <!-- 팝업 창 띄우기 -->
   
   <form class="payment"> 
-    <div class="addMenu"></div>
-    <div class="calcOrder">
-      <input type="submit" value="계산하기" class="btn">
+    <div id="title">
+      <div id="payName"> 상품명</div>
+      <div id="payPrice"> 가 격 </div>
+      <div id="payNumber"> 수 량 </div>
     </div>
-    <input type="button" value="추가하기" class="btn">
+    <div id="orderList">
+
+    </div>
+
+    
   </form>
   </container>
 
@@ -93,7 +98,7 @@
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
   		  <span id="sizeBox"></span>	
-          <input type="button" value="주문하기" class="orderBtn">
+        <div class="orderGO"> 주문하기 </div>
   </div>
   
   <div id = "orderBeverage">
@@ -112,15 +117,15 @@
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
   		  <span id="sizeBox"></span>	
-          <input type="button" value="주문하기" class="orderBtn">
+        <div class="orderGO"> 주문하기 </div>
   </div>
   
   <div id = "orderDessert">
           <img src="" class="selectImg">
           <span id="orderTitle"> 주문 하기</span>
      	  <box-icon name='window-close' class="closeDessert"></box-icon>
-          <span class="selectName" > 메뉴&nbsp;이름 </span> <span class="selectedName"> 아메리카노 </span> </br>
-          <span class="selectPrice"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span class="selectedPrice"> 3000 </span> </br>
+          <span class="selectName" > 메뉴&nbsp;이름 </span> <span class="selectedName"> 치즈케이크 </span> </br>
+          <span class="selectPrice"> 가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;격 </span> <span class="selectedPrice"> 6500 </span> </br>
           <span class="selectNumber"> 수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;량 </span>
     	  <div class="number">
             <box-icon id="minusBtn" type="solid" name='minus-circle' size="lg" color="black" onclick="minusNumber()"></box-icon>
@@ -129,7 +134,7 @@
           </div>
   		  <!-- 핫/아이스, 사이즈가 표시될 태그 -->
   		  <span id="sizeBox"></span>	
-          <input type="button" value="주문하기" class="orderBtn">
+        <div class="orderGO"> 주문하기 </div>
   </div>
   
   
@@ -290,8 +295,7 @@ $(".dessert").click(function() {
 
 $(".closeCoffee").click(function(){
     $("#orderCoffee").fadeOut();        
-    $("#modal").fadeOut();
-    
+    $("#modal").fadeOut();  
 });
 
 $(".closeBeverage").click(function(){
@@ -302,8 +306,7 @@ $(".closeBeverage").click(function(){
 
 $(".closeDessert").click(function(){
     $("#orderDessert").fadeOut();
-    $("#modal").fadeOut();
-    
+    $("#modal").fadeOut();  
 });
 
 var price1 = 0;
@@ -406,7 +409,53 @@ function minusNumber() {
 
 }
 
+    var oName = "";
+    var oPrice = "";
+    var oNumber = "";
+    var oSize = "";
+    var oTemp = "";
 
+    $(".orderGO").click (function (){
+
+      oName = $(this).siblings(".selectedName").text();
+      oPrice = parseInt($(this).siblings(".selectedPrice").text());
+      oNumber = $(this).siblings(".number").find(".orderNumber").text();
+      oTemp = $(this).siblings(".selectIce").text() + $(this).siblings(".selectHot").text() ;
+      oSize = $(this).siblings("selectLarge").text() + $(this).siblings(".selectSmall").text();
+
+      console.log(oPrice);
+      const orderDiv = document.createElement('div');
+      orderDiv.className = 'goods';
+      const onameDiv = document.createElement('div');
+      onameDiv.id = 'oName';
+      const opriceDiv = document.createElement('div'); 
+      opriceDiv.id = 'oPrice';
+      const onumberDiv = document.createElement('div');
+      onumberDiv.id = 'oNumber';
+      const cancleDiv = document.createElement("img");
+      cancleDiv.className = 'xImage';
+
+      orderDiv.appendChild(onameDiv);
+      orderDiv.appendChild(opriceDiv);
+      orderDiv.appendChild(onumberDiv);
+      orderDiv.appendChild(cancleDiv);
+
+      onameDiv.append(oName);
+      opriceDiv.append(oPrice);
+      onumberDiv.append(oNumber);
+
+
+     
+      $("#orderList").append(orderDiv);
+      $("#orderCoffee").fadeOut();        
+      $("#modal").fadeOut();
+      $("#orderBeverage").fadeOut();
+      $("#modal").fadeOut();
+      $("#orderDessert").fadeOut();
+      $("#modal").fadeOut();  
+
+
+    });
 </script>
 
 </html>
